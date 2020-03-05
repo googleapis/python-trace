@@ -791,9 +791,9 @@ Trace = _reflection.GeneratedProtocolMessageType(
     dict(
         DESCRIPTOR=_TRACE,
         __module__="google.devtools.cloudtrace_v1.proto.trace_pb2",
-        __doc__="""A trace describes how long it takes for an application to
-  perform an operation. It consists of a set of spans, each of which
-  represent a single timed event within the operation.
+        __doc__="""A trace describes how long it takes for an application to perform an
+  operation. It consists of a set of spans, each of which represent a
+  single timed event within the operation.
   
   
   Attributes:
@@ -908,8 +908,8 @@ ListTracesRequest = _reflection.GeneratedProtocolMessageType(
     dict(
         DESCRIPTOR=_LISTTRACESREQUEST,
         __module__="google.devtools.cloudtrace_v1.proto.trace_pb2",
-        __doc__="""The request message for the ``ListTraces`` method. All fields are
-  required unless specified.
+        __doc__="""The request message for the ``ListTraces`` method. All
+  fields are required unless specified.
   
   
   Attributes:
