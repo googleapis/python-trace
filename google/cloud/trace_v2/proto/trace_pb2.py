@@ -1677,12 +1677,12 @@ Span = _reflection.GeneratedProtocolMessageType(
         ),
         DESCRIPTOR=_SPAN,
         __module__="google.devtools.cloudtrace_v2.proto.trace_pb2",
-        __doc__="""A span represents a single operation within a trace. Spans can be nested
-  to form a trace tree. Often, a trace contains a root span that describes
-  the end-to-end latency, and one or more subspans for its sub-operations.
-  A trace can also contain multiple root spans, or none at all. Spans do
-  not need to be contiguous—there may be gaps or overlaps between spans in
-  a trace.
+        __doc__="""A span represents a single operation within a trace. Spans
+  can be nested to form a trace tree. Often, a trace contains a root span
+  that describes the end-to-end latency, and one or more subspans for its
+  sub-operations. A trace can also contain multiple root spans, or none at
+  all. Spans do not need to be contiguous—there may be gaps or overlaps
+  between spans in a trace.
   
   
   Attributes:
@@ -1890,8 +1890,7 @@ TruncatableString = _reflection.GeneratedProtocolMessageType(
     dict(
         DESCRIPTOR=_TRUNCATABLESTRING,
         __module__="google.devtools.cloudtrace_v2.proto.trace_pb2",
-        __doc__="""Represents a string that might be shortened to a specified
-  length.
+        __doc__="""Represents a string that might be shortened to a specified length.
   
   
   Attributes:
