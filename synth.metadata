@@ -1,25 +1,18 @@
 {
   "sources": [
     {
-      "generator": {
-        "name": "artman",
-        "version": "2.0.0",
-        "dockerImage": "googleapis/artman@sha256:b3b47805231a305d0f40c4bf069df20f6a2635574e6d4259fac651d3f9f6e098"
-      }
-    },
-    {
       "git": {
         "name": ".",
-        "remote": "git@github.com:googleapis/python-trace",
-        "sha": "59e0079f7154190a27faf7cc57d970645f6f8594"
+        "remote": "https://github.com/googleapis/python-trace.git",
+        "sha": "d8d74c714e7385533148c8e9f890153374ef4f87"
       }
     },
     {
       "git": {
         "name": "googleapis",
         "remote": "https://github.com/googleapis/googleapis.git",
-        "sha": "2bf9f22da3f101aeb536e1e88fe036323b8e9188",
-        "internalRef": "307654927"
+        "sha": "862cd840dbb0101a0630913217bf8b6d4101c84c",
+        "internalRef": "307739946"
       }
     },
     {
@@ -37,8 +30,7 @@
         "apiName": "trace",
         "apiVersion": "v1",
         "language": "python",
-        "generator": "gapic",
-        "config": "google/devtools/cloudtrace/artman_cloudtrace_v1.yaml"
+        "generator": "bazel"
       }
     },
     {
@@ -47,8 +39,7 @@
         "apiName": "trace",
         "apiVersion": "v2",
         "language": "python",
-        "generator": "gapic",
-        "config": "google/devtools/cloudtrace/artman_cloudtrace_v2.yaml"
+        "generator": "bazel"
       }
     }
   ]
