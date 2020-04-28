@@ -231,41 +231,8 @@ class TraceServiceClient(object):
 
         Args:
             project_id (str): Required. ID of the Cloud project where the trace data is stored.
-            view (~google.cloud.trace_v1.types.ViewType): Collection of labels associated with the span. Label keys must be
-                less than 128 bytes. Label values must be less than 16 kilobytes (10MB
-                for ``/stacktrace`` values).
-
-                Some predefined label keys exist, or you may create your own. When
-                creating your own, we recommend the following formats:
-
-                -  ``/category/product/key`` for agents of well-known products (e.g.
-                   ``/db/mongodb/read_size``).
-                -  ``short_host/path/key`` for domain-specific keys (e.g.
-                   ``foo.com/myproduct/bar``)
-
-                Predefined labels include:
-
-                -  ``/agent``
-                -  ``/component``
-                -  ``/error/message``
-                -  ``/error/name``
-                -  ``/http/client_city``
-                -  ``/http/client_country``
-                -  ``/http/client_protocol``
-                -  ``/http/client_region``
-                -  ``/http/host``
-                -  ``/http/method``
-                -  ``/http/path``
-                -  ``/http/redirected_url``
-                -  ``/http/request/size``
-                -  ``/http/response/size``
-                -  ``/http/route``
-                -  ``/http/status_code``
-                -  ``/http/url``
-                -  ``/http/user_agent``
-                -  ``/pid``
-                -  ``/stacktrace``
-                -  ``/tid``
+            view (~google.cloud.trace_v1.types.ViewType): Optional. Type of data returned for traces in the list. Default is
+                ``MINIMAL``.
             page_size (int): The maximum number of resources contained in the
                 underlying API response. If page streaming is performed per-
                 resource, this parameter does not affect the return value. If page
@@ -281,33 +248,49 @@ class TraceServiceClient(object):
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.trace_v1.types.Timestamp`
-            filter_ (str): Denotes a field as required. This indicates that the field **must**
-                be provided as part of the request, and failure to do so will cause an
-                error (usually ``INVALID_ARGUMENT``).
-            order_by (str): Optional. The relative resource name pattern associated with this
-                resource type. The DNS prefix of the full resource name shouldn't be
-                specified here.
+            filter_ (str): Optional. A filter against labels for the request.
 
-                The path pattern must follow the syntax, which aligns with HTTP binding
-                syntax:
+                By default, searches use prefix matching. To specify exact match,
+                prepend a plus symbol (``+``) to the search term. Multiple terms are
+                ANDed. Syntax:
 
-                ::
+                -  ``root:NAME_PREFIX`` or ``NAME_PREFIX``: Return traces where any root
+                   span starts with ``NAME_PREFIX``.
+                -  ``+root:NAME`` or ``+NAME``: Return traces where any root span's name
+                   is exactly ``NAME``.
+                -  ``span:NAME_PREFIX``: Return traces where any span starts with
+                   ``NAME_PREFIX``.
+                -  ``+span:NAME``: Return traces where any span's name is exactly
+                   ``NAME``.
+                -  ``latency:DURATION``: Return traces whose overall latency is greater
+                   or equal to than ``DURATION``. Accepted units are nanoseconds
+                   (``ns``), milliseconds (``ms``), and seconds (``s``). Default is
+                   ``ms``. For example, ``latency:24ms`` returns traces whose overall
+                   latency is greater than or equal to 24 milliseconds.
+                -  ``label:LABEL_KEY``: Return all traces containing the specified label
+                   key (exact match, case-sensitive) regardless of the key:value pair's
+                   value (including empty values).
+                -  ``LABEL_KEY:VALUE_PREFIX``: Return all traces containing the
+                   specified label key (exact match, case-sensitive) whose value starts
+                   with ``VALUE_PREFIX``. Both a key and a value must be specified.
+                -  ``+LABEL_KEY:VALUE``: Return all traces containing a key:value pair
+                   exactly matching the specified text. Both a key and a value must be
+                   specified.
+                -  ``method:VALUE``: Equivalent to ``/http/method:VALUE``.
+                -  ``url:VALUE``: Equivalent to ``/http/url:VALUE``.
+            order_by (str): Optional. Field used to sort the returned traces. Can be one of the
+                following:
 
-                    Template = Segment { "/" Segment } ;
-                    Segment = LITERAL | Variable ;
-                    Variable = "{" LITERAL "}" ;
+                -  ``trace_id``
+                -  ``name`` (``name`` field of root span in the trace)
+                -  ``duration`` (difference between ``end_time`` and ``start_time``
+                   fields of the root span)
+                -  ``start`` (``start_time`` field of the root span)
 
-                Examples:
+                Descending order can be specified by appending ``desc`` to the sort
+                field (for example, ``name desc``).
 
-                ::
-
-                    - "projects/{project}/topics/{topic}"
-                    - "projects/{project}/knowledgeBases/{knowledge_base}"
-
-                The components in braces correspond to the IDs for each resource in the
-                hierarchy. It is expected that, if multiple patterns are provided, the
-                same component name (e.g. "project") refers to IDs of the same type of
-                resource.
+                Only one sort field is permitted.
             retry (Optional[google.api_core.retry.Retry]):  A retry object used
                 to retry requests. If ``None`` is specified, requests will
                 be retried using a default configuration.
