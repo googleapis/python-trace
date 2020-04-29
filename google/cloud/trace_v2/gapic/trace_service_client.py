@@ -235,8 +235,11 @@ class TraceServiceClient(object):
             >>> client.batch_write_spans(name, spans)
 
         Args:
-            name (str): Required. The name of the project where the spans belong. The format
-                is ``projects/[PROJECT_ID]``.
+            name (str): If set, all the classes from the .proto file are wrapped in a single
+                outer class with the given name. This applies to both Proto1 (equivalent
+                to the old "--one_java_file" option) and Proto2 (where a .proto always
+                translates to a single class, but you may want to explicitly choose the
+                class name).
             spans (list[Union[dict, ~google.cloud.trace_v2.types.Span]]): Required. A list of new spans. The span names must not match existing
                 spans, or the results are undefined.
 
@@ -331,18 +334,55 @@ class TraceServiceClient(object):
             >>> response = client.create_span(name, span_id, display_name, start_time, end_time)
 
         Args:
-            name (str): The resource name of the span in the following format:
+            name (str): Optional. The historical or future-looking state of the resource
+                pattern.
+
+                Example:
 
                 ::
 
-                    projects/[PROJECT_ID]/traces/[TRACE_ID]/spans/[SPAN_ID]
+                    // The InspectTemplate message originally only supported resource
+                    // names with organization, and project was added later.
+                    message InspectTemplate {
+                      option (google.api.resource) = {
+                        type: "dlp.googleapis.com/InspectTemplate"
+                        pattern:
+                        "organizations/{organization}/inspectTemplates/{inspect_template}"
+                        pattern: "projects/{project}/inspectTemplates/{inspect_template}"
+                        history: ORIGINALLY_SINGLE_PATTERN
+                      };
+                    }
+            span_id (str): Protocol Buffers - Google's data interchange format Copyright 2008
+                Google Inc. All rights reserved.
+                https://developers.google.com/protocol-buffers/
 
-                [TRACE_ID] is a unique identifier for a trace within a project; it is a
-                32-character hexadecimal encoding of a 16-byte array.
+                Redistribution and use in source and binary forms, with or without
+                modification, are permitted provided that the following conditions are
+                met:
 
-                [SPAN_ID] is a unique identifier for a span within a trace; it is a
-                16-character hexadecimal encoding of an 8-byte array.
-            span_id (str): The [SPAN_ID] portion of the span's resource name.
+                ::
+
+                    * Redistributions of source code must retain the above copyright
+
+                notice, this list of conditions and the following disclaimer. \*
+                Redistributions in binary form must reproduce the above copyright
+                notice, this list of conditions and the following disclaimer in the
+                documentation and/or other materials provided with the distribution. \*
+                Neither the name of Google Inc. nor the names of its contributors may be
+                used to endorse or promote products derived from this software without
+                specific prior written permission.
+
+                THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS
+                IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED
+                TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A
+                PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER
+                OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL,
+                EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO,
+                PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR
+                PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+                LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+                NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+                SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
             display_name (Union[dict, ~google.cloud.trace_v2.types.TruncatableString]): A description of the span's operation (up to 128 bytes).
                 Stackdriver Trace displays the description in the
                 Google Cloud Platform Console.
@@ -365,8 +405,8 @@ class TraceServiceClient(object):
 
                 If a dict is provided, it must be of the same form as the protobuf
                 message :class:`~google.cloud.trace_v2.types.Timestamp`
-            parent_span_id (str): The [SPAN_ID] of this span's parent span. If this is a root span,
-                then this field must be empty.
+            parent_span_id (str): A ``TimeEvent`` can contain either an ``Annotation`` object or a
+                ``MessageEvent`` object, but not both.
             attributes (Union[dict, ~google.cloud.trace_v2.types.Attributes]): A set of attributes on the span. You can have up to 32 attributes per
                 span.
 
