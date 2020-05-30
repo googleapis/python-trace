@@ -1652,8 +1652,8 @@ Span = _reflection.GeneratedProtocolMessageType(
             {
                 "DESCRIPTOR": _SPAN_LINKS,
                 "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
-                "__doc__": """A collection of links, which are references from this span
-    to a span in the same or different trace.
+                "__doc__": """A collection of links, which are references from this span to a span in
+    the same or different trace.
     
     
     Attributes:
