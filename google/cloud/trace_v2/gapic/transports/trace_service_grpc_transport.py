@@ -109,6 +109,19 @@ class TraceServiceGrpcTransport(object):
         return self._channel
 
     @property
+    def create_span(self):
+        """Return the gRPC stub for :meth:`TraceServiceClient.create_span`.
+
+        Creates a new span.
+
+        Returns:
+            Callable: A callable which accepts the appropriate
+                deserialized request object and returns a
+                deserialized response object.
+        """
+        return self._stubs["trace_service_stub"].CreateSpan
+
+    @property
     def batch_write_spans(self):
         """Return the gRPC stub for :meth:`TraceServiceClient.batch_write_spans`.
 
@@ -121,16 +134,3 @@ class TraceServiceGrpcTransport(object):
                 deserialized response object.
         """
         return self._stubs["trace_service_stub"].BatchWriteSpans
-
-    @property
-    def create_span(self):
-        """Return the gRPC stub for :meth:`TraceServiceClient.create_span`.
-
-        Creates a new span.
-
-        Returns:
-            Callable: A callable which accepts the appropriate
-                deserialized request object and returns a
-                deserialized response object.
-        """
-        return self._stubs["trace_service_stub"].CreateSpan
