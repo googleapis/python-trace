@@ -1652,8 +1652,8 @@ Span = _reflection.GeneratedProtocolMessageType(
             {
                 "DESCRIPTOR": _SPAN_LINKS,
                 "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
-                "__doc__": """A collection of links, which are references from this span to a span in
-    the same or different trace.
+                "__doc__": """A collection of links, which are references from this span
+    to a span in the same or different trace.
     
     
     Attributes:
@@ -1668,12 +1668,12 @@ Span = _reflection.GeneratedProtocolMessageType(
         ),
         "DESCRIPTOR": _SPAN,
         "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
-        "__doc__": """A span represents a single operation within a trace. Spans
-  can be nested to form a trace tree. Often, a trace contains a root span
-  that describes the end-to-end latency, and one or more subspans for its
-  sub-operations. A trace can also contain multiple root spans, or none at
-  all. Spans do not need to be contiguous—there may be gaps or overlaps
-  between spans in a trace.
+        "__doc__": """A span represents a single operation within a trace. Spans can be nested
+  to form a trace tree. Often, a trace contains a root span that describes
+  the end-to-end latency, and one or more subspans for its sub-operations.
+  A trace can also contain multiple root spans, or none at all. Spans do
+  not need to be contiguous—there may be gaps or overlaps between spans in
+  a trace.
   
   
   Attributes:
