@@ -1624,11 +1624,10 @@ Span = _reflection.GeneratedProtocolMessageType(
             {
                 "DESCRIPTOR": _SPAN_LINK,
                 "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
-                "__doc__": """A pointer from the current span to another span in the
-    same trace or in a different trace. For example, this can be used in
-    batching operations, where a single batch handler processes multiple
-    requests from different traces or when the handler receives a request
-    from a different project.
+                "__doc__": """A pointer from the current span to another span in the same trace or in
+    a different trace. For example, this can be used in batching operations,
+    where a single batch handler processes multiple requests from different
+    traces or when the handler receives a request from a different project.
     
     
     Attributes:
@@ -1750,7 +1749,8 @@ AttributeValue = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _ATTRIBUTEVALUE,
         "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
-        "__doc__": """The allowed types for [VALUE] in a ``[KEY]:[VALUE]`` attribute.
+        "__doc__": """The allowed types for [VALUE] in a ``[KEY]:[VALUE]``
+  attribute.
   
   
   Attributes:
