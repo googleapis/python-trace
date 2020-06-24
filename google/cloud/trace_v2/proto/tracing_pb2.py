@@ -116,6 +116,7 @@ BatchWriteSpansRequest = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _BATCHWRITESPANSREQUEST,
         "__module__": "google.cloud.devtools.cloudtrace_v2.proto.tracing_pb2",
         "__doc__": """The request message for the ``BatchWriteSpans`` method.
+  
   Attributes:
       name:
           Required. The name of the project where the spans belong. The

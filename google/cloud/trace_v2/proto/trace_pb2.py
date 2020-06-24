@@ -1592,6 +1592,7 @@ Span = _reflection.GeneratedProtocolMessageType(
                 "DESCRIPTOR": _SPAN_ATTRIBUTES,
                 "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
                 "__doc__": """A set of attributes, each in the format ``[KEY]:[VALUE]``.
+    
     Attributes:
         attribute_map:
             The set of attributes. Each attribute’s key can be up to 128
@@ -1620,6 +1621,7 @@ Span = _reflection.GeneratedProtocolMessageType(
                         "DESCRIPTOR": _SPAN_TIMEEVENT_ANNOTATION,
                         "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
                         "__doc__": """Text annotation with a set of attributes.
+      
       Attributes:
           description:
               A user-supplied message describing the event. The maximum
@@ -1638,6 +1640,7 @@ Span = _reflection.GeneratedProtocolMessageType(
                         "DESCRIPTOR": _SPAN_TIMEEVENT_MESSAGEEVENT,
                         "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
                         "__doc__": """An event describing a message sent/received between Spans.
+      
       Attributes:
           type:
               Type of MessageEvent. Indicates whether the message was sent
@@ -1658,6 +1661,7 @@ Span = _reflection.GeneratedProtocolMessageType(
                 "DESCRIPTOR": _SPAN_TIMEEVENT,
                 "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
                 "__doc__": """A time-stamped annotation or message event in the Span.
+    
     Attributes:
         time:
             The timestamp indicating the time the event occurred.
@@ -1681,6 +1685,7 @@ Span = _reflection.GeneratedProtocolMessageType(
                 "__doc__": """A collection of ``TimeEvent``\ s. A ``TimeEvent`` is a time-stamped
     annotation on the span, consisting of either user-supplied key:value
     pairs, or details of a message sent/received between Spans.
+    
     Attributes:
         time_event:
             A collection of ``TimeEvent``\ s.
@@ -1706,6 +1711,7 @@ Span = _reflection.GeneratedProtocolMessageType(
     operations, where a single batch handler processes multiple requests
     from different traces or when the handler receives a request from a
     different project.
+    
     Attributes:
         trace_id:
             The [TRACE_ID] for a trace within a project.
@@ -1729,6 +1735,7 @@ Span = _reflection.GeneratedProtocolMessageType(
                 "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
                 "__doc__": """A collection of links, which are references from this span to a span
     in the same or different trace.
+    
     Attributes:
         link:
             A collection of links.
@@ -1747,6 +1754,7 @@ Span = _reflection.GeneratedProtocolMessageType(
   sub-operations. A trace can also contain multiple root spans, or none
   at all. Spans do not need to be contiguous—there may be gaps or
   overlaps between spans in a trace.
+  
   Attributes:
       name:
           The resource name of the span in the following format:  ::
@@ -1822,6 +1830,7 @@ AttributeValue = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _ATTRIBUTEVALUE,
         "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
         "__doc__": """The allowed types for [VALUE] in a ``[KEY]:[VALUE]`` attribute.
+  
   Attributes:
       value:
           The type of the value.
@@ -1848,6 +1857,7 @@ StackTrace = _reflection.GeneratedProtocolMessageType(
                 "DESCRIPTOR": _STACKTRACE_STACKFRAME,
                 "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
                 "__doc__": """Represents a single stack frame in a stack trace.
+    
     Attributes:
         function_name:
             The fully-qualified name that uniquely identifies the function
@@ -1881,6 +1891,7 @@ StackTrace = _reflection.GeneratedProtocolMessageType(
                 "DESCRIPTOR": _STACKTRACE_STACKFRAMES,
                 "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
                 "__doc__": """A collection of stack frames, which can be truncated.
+    
     Attributes:
         frame:
             Stack frames in this call stack.
@@ -1895,6 +1906,7 @@ StackTrace = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _STACKTRACE,
         "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
         "__doc__": """A call stack appearing in a trace.
+  
   Attributes:
       stack_frames:
           Stack frames in this stack trace. A maximum of 128 frames are
@@ -1922,6 +1934,7 @@ Module = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _MODULE,
         "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
         "__doc__": """Binary module.
+  
   Attributes:
       module:
           For example: main binary, kernel modules, and dynamic
@@ -1942,6 +1955,7 @@ TruncatableString = _reflection.GeneratedProtocolMessageType(
         "DESCRIPTOR": _TRUNCATABLESTRING,
         "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
         "__doc__": """Represents a string that might be shortened to a specified length.
+  
   Attributes:
       value:
           The shortened string. For example, if the original string is
