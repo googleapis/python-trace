@@ -784,9 +784,9 @@ Trace = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _TRACE,
         "__module__": "google.cloud.devtools.cloudtrace_v1.proto.trace_pb2",
-        "__doc__": """A trace describes how long it takes for an application to
-  perform an operation. It consists of a set of spans, each of which
-  represent a single timed event within the operation.
+        "__doc__": """A trace describes how long it takes for an application to perform an
+  operation. It consists of a set of spans, each of which represent a
+  single timed event within the operation.
   
   
   Attributes:

@@ -1750,8 +1750,7 @@ AttributeValue = _reflection.GeneratedProtocolMessageType(
     {
         "DESCRIPTOR": _ATTRIBUTEVALUE,
         "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
-        "__doc__": """The allowed types for [VALUE] in a ``[KEY]:[VALUE]``
-  attribute.
+        "__doc__": """The allowed types for [VALUE] in a ``[KEY]:[VALUE]`` attribute.
   
   
   Attributes:
