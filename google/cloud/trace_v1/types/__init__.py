@@ -15,21 +15,23 @@
 # limitations under the License.
 #
 
-from .services.trace_service import TraceServiceClient
-from .types.trace import AttributeValue
-from .types.trace import Module
-from .types.trace import Span
-from .types.trace import StackTrace
-from .types.trace import TruncatableString
-from .types.tracing import BatchWriteSpansRequest
+from .trace import (
+    Trace,
+    Traces,
+    TraceSpan,
+    ListTracesRequest,
+    ListTracesResponse,
+    GetTraceRequest,
+    PatchTracesRequest,
+)
 
 
 __all__ = (
-    "AttributeValue",
-    "BatchWriteSpansRequest",
-    "Module",
-    "Span",
-    "StackTrace",
-    "TruncatableString",
-    "TraceServiceClient",
+    "Trace",
+    "Traces",
+    "TraceSpan",
+    "ListTracesRequest",
+    "ListTracesResponse",
+    "GetTraceRequest",
+    "PatchTracesRequest",
 )
