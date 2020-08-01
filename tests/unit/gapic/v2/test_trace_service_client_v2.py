@@ -26,9 +26,9 @@ from google.protobuf import empty_pb2
 from google.protobuf import timestamp_pb2
 
 
-
 class MultiCallableStub(object):
     """Stub for the grpc.UnaryUnaryMultiCallable interface."""
+
     def __init__(self, method, channel_stub):
         self.method = method
         self.channel_stub = channel_stub
@@ -49,12 +49,12 @@ class MultiCallableStub(object):
 
 class ChannelStub(object):
     """Stub for the grpc.Channel interface."""
-    def __init__(self, responses = []):
+
+    def __init__(self, responses=[]):
         self.responses = responses
         self.requests = []
 
-    def unary_unary(
-            self, method, request_serializer=None, response_deserializer=None):
+    def unary_unary(self, method, request_serializer=None, response_deserializer=None):
         return MultiCallableStub(method, self)
 
 
@@ -63,25 +63,28 @@ class CustomException(Exception):
 
 
 class TestTraceServiceClient(object):
-
     def test_create_span(self):
         # Setup Expected Response
-        name_2 = 'name2-1052831874'
-        span_id_2 = 'spanId2-643891741'
-        parent_span_id = 'parentSpanId-1757797477'
-        expected_response = {'name': name_2, 'span_id': span_id_2, 'parent_span_id': parent_span_id}
+        name_2 = "name2-1052831874"
+        span_id_2 = "spanId2-643891741"
+        parent_span_id = "parentSpanId-1757797477"
+        expected_response = {
+            "name": name_2,
+            "span_id": span_id_2,
+            "parent_span_id": parent_span_id,
+        }
         expected_response = trace_pb2.Span(**expected_response)
 
         # Mock the API response
-        channel = ChannelStub(responses = [expected_response])
-        patch = mock.patch('google.api_core.grpc_helpers.create_channel')
+        channel = ChannelStub(responses=[expected_response])
+        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
             client = trace_v2.TraceServiceClient()
 
         # Setup Request
-        name = client.span_path('[PROJECT]', '[TRACE]', '[SPAN]')
-        span_id = 'spanId-2011840976'
+        name = client.span_path("[PROJECT]", "[TRACE]", "[SPAN]")
+        span_id = "spanId-2011840976"
         display_name = {}
         start_time = {}
         end_time = {}
@@ -90,21 +93,27 @@ class TestTraceServiceClient(object):
         assert expected_response == response
 
         assert len(channel.requests) == 1
-        expected_request = trace_pb2.Span(name=name, span_id=span_id, display_name=display_name, start_time=start_time, end_time=end_time)
+        expected_request = trace_pb2.Span(
+            name=name,
+            span_id=span_id,
+            display_name=display_name,
+            start_time=start_time,
+            end_time=end_time,
+        )
         actual_request = channel.requests[0][1]
         assert expected_request == actual_request
 
     def test_create_span_exception(self):
         # Mock the API response
-        channel = ChannelStub(responses = [CustomException()])
-        patch = mock.patch('google.api_core.grpc_helpers.create_channel')
+        channel = ChannelStub(responses=[CustomException()])
+        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
             client = trace_v2.TraceServiceClient()
 
         # Setup request
-        name = client.span_path('[PROJECT]', '[TRACE]', '[SPAN]')
-        span_id = 'spanId-2011840976'
+        name = client.span_path("[PROJECT]", "[TRACE]", "[SPAN]")
+        span_id = "spanId-2011840976"
         display_name = {}
         start_time = {}
         end_time = {}
@@ -114,13 +123,13 @@ class TestTraceServiceClient(object):
 
     def test_batch_write_spans(self):
         channel = ChannelStub()
-        patch = mock.patch('google.api_core.grpc_helpers.create_channel')
+        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
             client = trace_v2.TraceServiceClient()
 
         # Setup Request
-        name = client.project_path('[PROJECT]')
+        name = client.project_path("[PROJECT]")
         spans = []
 
         client.batch_write_spans(name, spans)
@@ -132,14 +141,14 @@ class TestTraceServiceClient(object):
 
     def test_batch_write_spans_exception(self):
         # Mock the API response
-        channel = ChannelStub(responses = [CustomException()])
-        patch = mock.patch('google.api_core.grpc_helpers.create_channel')
+        channel = ChannelStub(responses=[CustomException()])
+        patch = mock.patch("google.api_core.grpc_helpers.create_channel")
         with patch as create_channel:
             create_channel.return_value = channel
             client = trace_v2.TraceServiceClient()
 
         # Setup request
-        name = client.project_path('[PROJECT]')
+        name = client.project_path("[PROJECT]")
         spans = []
 
         with pytest.raises(CustomException):

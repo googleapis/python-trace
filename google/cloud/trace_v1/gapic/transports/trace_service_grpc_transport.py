@@ -28,16 +28,18 @@ class TraceServiceGrpcTransport(object):
     which can be used to take advantage of advanced
     features of gRPC.
     """
+
     # The scopes needed to make gRPC calls to all of the methods defined
     # in this service.
     _OAUTH_SCOPES = (
-        'https://www.googleapis.com/auth/cloud-platform',
-        'https://www.googleapis.com/auth/trace.append',
-        'https://www.googleapis.com/auth/trace.readonly',
+        "https://www.googleapis.com/auth/cloud-platform",
+        "https://www.googleapis.com/auth/trace.append",
+        "https://www.googleapis.com/auth/trace.readonly",
     )
 
-    def __init__(self, channel=None, credentials=None,
-                 address='cloudtrace.googleapis.com:443'):
+    def __init__(
+        self, channel=None, credentials=None, address="cloudtrace.googleapis.com:443"
+    ):
         """Instantiate the transport class.
 
         Args:
@@ -55,8 +57,7 @@ class TraceServiceGrpcTransport(object):
         # exception (channels come with credentials baked in already).
         if channel is not None and credentials is not None:
             raise ValueError(
-                'The `channel` and `credentials` arguments are mutually '
-                'exclusive.',
+                "The `channel` and `credentials` arguments are mutually " "exclusive.",
             )
 
         # Create the channel.
@@ -65,8 +66,8 @@ class TraceServiceGrpcTransport(object):
                 address=address,
                 credentials=credentials,
                 options={
-                    'grpc.max_send_message_length': -1,
-                    'grpc.max_receive_message_length': -1,
+                    "grpc.max_send_message_length": -1,
+                    "grpc.max_receive_message_length": -1,
                 }.items(),
             )
 
@@ -75,16 +76,13 @@ class TraceServiceGrpcTransport(object):
         # gRPC uses objects called "stubs" that are bound to the
         # channel and provide a basic method for each RPC.
         self._stubs = {
-            'trace_service_stub': trace_pb2_grpc.TraceServiceStub(channel),
+            "trace_service_stub": trace_pb2_grpc.TraceServiceStub(channel),
         }
-
 
     @classmethod
     def create_channel(
-                cls,
-                address='cloudtrace.googleapis.com:443',
-                credentials=None,
-                **kwargs):
+        cls, address="cloudtrace.googleapis.com:443", credentials=None, **kwargs
+    ):
         """Create and return a gRPC channel object.
 
         Args:
@@ -101,10 +99,7 @@ class TraceServiceGrpcTransport(object):
             grpc.Channel: A gRPC channel object.
         """
         return google.api_core.grpc_helpers.create_channel(
-            address,
-            credentials=credentials,
-            scopes=cls._OAUTH_SCOPES,
-            **kwargs
+            address, credentials=credentials, scopes=cls._OAUTH_SCOPES, **kwargs
         )
 
     @property
@@ -131,7 +126,7 @@ class TraceServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['trace_service_stub'].PatchTraces
+        return self._stubs["trace_service_stub"].PatchTraces
 
     @property
     def list_traces(self):
@@ -144,7 +139,7 @@ class TraceServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['trace_service_stub'].ListTraces
+        return self._stubs["trace_service_stub"].ListTraces
 
     @property
     def get_trace(self):
@@ -157,4 +152,4 @@ class TraceServiceGrpcTransport(object):
                 deserialized request object and returns a
                 deserialized response object.
         """
-        return self._stubs['trace_service_stub'].GetTrace
+        return self._stubs["trace_service_stub"].GetTrace
