@@ -41,7 +41,10 @@ from google.protobuf import wrappers_pb2
 from google.rpc import status_pb2
 
 
-_GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution("google-cloud-trace",).version
+
+_GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution(
+    'google-cloud-trace',
+).version
 
 
 class TraceServiceClient(object):
@@ -53,12 +56,13 @@ class TraceServiceClient(object):
     contain span(s) from multiple services.
     """
 
-    SERVICE_ADDRESS = "cloudtrace.googleapis.com:443"
+    SERVICE_ADDRESS = 'cloudtrace.googleapis.com:443'
     """The default address of the service."""
 
     # The name of the interface for this client. This is the key used to
     # find the method configuration in the client_config dictionary.
-    _INTERFACE_NAME = "google.devtools.cloudtrace.v2.TraceService"
+    _INTERFACE_NAME = 'google.devtools.cloudtrace.v2.TraceService'
+
 
     @classmethod
     def from_service_account_file(cls, filename, *args, **kwargs):
@@ -74,38 +78,34 @@ class TraceServiceClient(object):
         Returns:
             TraceServiceClient: The constructed client.
         """
-        credentials = service_account.Credentials.from_service_account_file(filename)
-        kwargs["credentials"] = credentials
+        credentials = service_account.Credentials.from_service_account_file(
+            filename)
+        kwargs['credentials'] = credentials
         return cls(*args, **kwargs)
 
     from_service_account_json = from_service_account_file
+
 
     @classmethod
     def project_path(cls, project):
         """Return a fully-qualified project string."""
         return google.api_core.path_template.expand(
-            "projects/{project}", project=project,
+            'projects/{project}',
+            project=project,
         )
 
     @classmethod
     def span_path(cls, project, trace, span):
         """Return a fully-qualified span string."""
         return google.api_core.path_template.expand(
-            "projects/{project}/traces/{trace}/spans/{span}",
+            'projects/{project}/traces/{trace}/spans/{span}',
             project=project,
             trace=trace,
             span=span,
         )
 
-    def __init__(
-        self,
-        transport=None,
-        channel=None,
-        credentials=None,
-        client_config=None,
-        client_info=None,
-        client_options=None,
-    ):
+    def __init__(self, transport=None, channel=None, credentials=None,
+            client_config=None, client_info=None, client_options=None):
         """Constructor.
 
         Args:
@@ -141,27 +141,20 @@ class TraceServiceClient(object):
         """
         # Raise deprecation warnings for things we want to go away.
         if client_config is not None:
-            warnings.warn(
-                "The `client_config` argument is deprecated.",
-                PendingDeprecationWarning,
-                stacklevel=2,
-            )
+            warnings.warn('The `client_config` argument is deprecated.',
+                          PendingDeprecationWarning, stacklevel=2)
         else:
             client_config = trace_service_client_config.config
 
         if channel:
-            warnings.warn(
-                "The `channel` argument is deprecated; use " "`transport` instead.",
-                PendingDeprecationWarning,
-                stacklevel=2,
-            )
+            warnings.warn('The `channel` argument is deprecated; use '
+                          '`transport` instead.',
+                          PendingDeprecationWarning, stacklevel=2)
 
         api_endpoint = self.SERVICE_ADDRESS
         if client_options:
             if type(client_options) == dict:
-                client_options = google.api_core.client_options.from_dict(
-                    client_options
-                )
+                client_options = google.api_core.client_options.from_dict(client_options)
             if client_options.api_endpoint:
                 api_endpoint = client_options.api_endpoint
 
@@ -178,13 +171,15 @@ class TraceServiceClient(object):
             else:
                 if credentials:
                     raise ValueError(
-                        "Received both a transport instance and "
-                        "credentials; these are mutually exclusive."
+                        'Received both a transport instance and '
+                        'credentials; these are mutually exclusive.'
                     )
                 self.transport = transport
         else:
             self.transport = trace_service_grpc_transport.TraceServiceGrpcTransport(
-                address=api_endpoint, channel=channel, credentials=credentials,
+                address=api_endpoint,
+                channel=channel,
+                credentials=credentials,
             )
 
         if client_info is None:
@@ -200,7 +195,7 @@ class TraceServiceClient(object):
         # (Ordinarily, these are the defaults specified in the `*_config.py`
         # file next to this one.)
         self._method_configs = google.api_core.gapic_v1.config.parse_method_configs(
-            client_config["interfaces"][self._INTERFACE_NAME],
+            client_config['interfaces'][self._INTERFACE_NAME],
         )
 
         # Save a dictionary of cached API call functions.
@@ -211,24 +206,23 @@ class TraceServiceClient(object):
 
     # Service calls
     def create_span(
-        self,
-        name,
-        span_id,
-        display_name,
-        start_time,
-        end_time,
-        parent_span_id=None,
-        attributes=None,
-        stack_trace=None,
-        time_events=None,
-        links=None,
-        status=None,
-        same_process_as_parent_span=None,
-        child_span_count=None,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
+            self,
+            name,
+            span_id,
+            display_name,
+            start_time,
+            end_time,
+            parent_span_id=None,
+            attributes=None,
+            stack_trace=None,
+            time_events=None,
+            links=None,
+            status=None,
+            same_process_as_parent_span=None,
+            child_span_count=None,
+            retry=google.api_core.gapic_v1.method.DEFAULT,
+            timeout=google.api_core.gapic_v1.method.DEFAULT,
+            metadata=None):
         """
         Creates a new span.
 
@@ -344,13 +338,11 @@ class TraceServiceClient(object):
             ValueError: If the parameters are invalid.
         """
         # Wrap the transport method to add retry and timeout logic.
-        if "create_span" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "create_span"
-            ] = google.api_core.gapic_v1.method.wrap_method(
+        if 'create_span' not in self._inner_api_calls:
+            self._inner_api_calls['create_span'] = google.api_core.gapic_v1.method.wrap_method(
                 self.transport.create_span,
-                default_retry=self._method_configs["CreateSpan"].retry,
-                default_timeout=self._method_configs["CreateSpan"].timeout,
+                default_retry=self._method_configs['CreateSpan'].retry,
+                default_timeout=self._method_configs['CreateSpan'].timeout,
                 client_info=self._client_info,
             )
 
@@ -373,27 +365,22 @@ class TraceServiceClient(object):
             metadata = []
         metadata = list(metadata)
         try:
-            routing_header = [("name", name)]
+            routing_header = [('name', name)]
         except AttributeError:
             pass
         else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(routing_header)
             metadata.append(routing_metadata)
 
-        return self._inner_api_calls["create_span"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
+        return self._inner_api_calls['create_span'](request, retry=retry, timeout=timeout, metadata=metadata)
 
     def batch_write_spans(
-        self,
-        name,
-        spans,
-        retry=google.api_core.gapic_v1.method.DEFAULT,
-        timeout=google.api_core.gapic_v1.method.DEFAULT,
-        metadata=None,
-    ):
+            self,
+            name,
+            spans,
+            retry=google.api_core.gapic_v1.method.DEFAULT,
+            timeout=google.api_core.gapic_v1.method.DEFAULT,
+            metadata=None):
         """
         Sends new spans to new or existing traces. You cannot update
         existing spans.
@@ -435,30 +422,27 @@ class TraceServiceClient(object):
             ValueError: If the parameters are invalid.
         """
         # Wrap the transport method to add retry and timeout logic.
-        if "batch_write_spans" not in self._inner_api_calls:
-            self._inner_api_calls[
-                "batch_write_spans"
-            ] = google.api_core.gapic_v1.method.wrap_method(
+        if 'batch_write_spans' not in self._inner_api_calls:
+            self._inner_api_calls['batch_write_spans'] = google.api_core.gapic_v1.method.wrap_method(
                 self.transport.batch_write_spans,
-                default_retry=self._method_configs["BatchWriteSpans"].retry,
-                default_timeout=self._method_configs["BatchWriteSpans"].timeout,
+                default_retry=self._method_configs['BatchWriteSpans'].retry,
+                default_timeout=self._method_configs['BatchWriteSpans'].timeout,
                 client_info=self._client_info,
             )
 
-        request = tracing_pb2.BatchWriteSpansRequest(name=name, spans=spans,)
+        request = tracing_pb2.BatchWriteSpansRequest(
+            name=name,
+            spans=spans,
+        )
         if metadata is None:
             metadata = []
         metadata = list(metadata)
         try:
-            routing_header = [("name", name)]
+            routing_header = [('name', name)]
         except AttributeError:
             pass
         else:
-            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(
-                routing_header
-            )
+            routing_metadata = google.api_core.gapic_v1.routing_header.to_grpc_metadata(routing_header)
             metadata.append(routing_metadata)
 
-        self._inner_api_calls["batch_write_spans"](
-            request, retry=retry, timeout=timeout, metadata=metadata
-        )
+        self._inner_api_calls['batch_write_spans'](request, retry=retry, timeout=timeout, metadata=metadata)

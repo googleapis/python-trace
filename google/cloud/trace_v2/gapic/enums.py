@@ -31,10 +31,10 @@ class Span(object):
                   SENT (int): Indicates a sent message.
                   RECEIVED (int): Indicates a received message.
                 """
-
                 TYPE_UNSPECIFIED = 0
                 SENT = 1
                 RECEIVED = 2
+
 
     class Link(object):
         class Type(enum.IntEnum):
@@ -47,7 +47,7 @@ class Span(object):
               CHILD_LINKED_SPAN (int): The linked span is a child of the current span.
               PARENT_LINKED_SPAN (int): The linked span is a parent of the current span.
             """
-
             TYPE_UNSPECIFIED = 0
             CHILD_LINKED_SPAN = 1
             PARENT_LINKED_SPAN = 2
+        

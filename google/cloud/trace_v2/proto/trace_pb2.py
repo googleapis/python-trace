@@ -6,7 +6,6 @@ from google.protobuf import descriptor as _descriptor
 from google.protobuf import message as _message
 from google.protobuf import reflection as _reflection
 from google.protobuf import symbol_database as _symbol_database
-
 # @@protoc_insertion_point(imports)
 
 _sym_db = _symbol_database.Default()
@@ -21,1577 +20,905 @@ from google.rpc import status_pb2 as google_dot_rpc_dot_status__pb2
 
 
 DESCRIPTOR = _descriptor.FileDescriptor(
-    name="google/cloud/devtools/cloudtrace_v2/proto/trace.proto",
-    package="google.devtools.cloudtrace.v2",
-    syntax="proto3",
-    serialized_options=b"\n!com.google.devtools.cloudtrace.v2B\nTraceProtoP\001ZGgoogle.golang.org/genproto/googleapis/devtools/cloudtrace/v2;cloudtrace\252\002\025Google.Cloud.Trace.V2\312\002\025Google\\Cloud\\Trace\\V2\352\002\030Google::Cloud::Trace::V2",
-    create_key=_descriptor._internal_create_key,
-    serialized_pb=b'\n5google/cloud/devtools/cloudtrace_v2/proto/trace.proto\x12\x1dgoogle.devtools.cloudtrace.v2\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x17google/rpc/status.proto"\xc2\x10\n\x04Span\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x07span_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\x0eparent_span_id\x18\x03 \x01(\t\x12K\n\x0c\x64isplay_name\x18\x04 \x01(\x0b\x32\x30.google.devtools.cloudtrace.v2.TruncatableStringB\x03\xe0\x41\x02\x12\x33\n\nstart_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x02\x12\x31\n\x08\x65nd_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x02\x12\x42\n\nattributes\x18\x07 \x01(\x0b\x32..google.devtools.cloudtrace.v2.Span.Attributes\x12>\n\x0bstack_trace\x18\x08 \x01(\x0b\x32).google.devtools.cloudtrace.v2.StackTrace\x12\x43\n\x0btime_events\x18\t \x01(\x0b\x32..google.devtools.cloudtrace.v2.Span.TimeEvents\x12\x38\n\x05links\x18\n \x01(\x0b\x32).google.devtools.cloudtrace.v2.Span.Links\x12\'\n\x06status\x18\x0b \x01(\x0b\x32\x12.google.rpc.StatusB\x03\xe0\x41\x01\x12\x44\n\x1bsame_process_as_parent_span\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.BoolValueB\x03\xe0\x41\x01\x12:\n\x10\x63hild_span_count\x18\r \x01(\x0b\x32\x1b.google.protobuf.Int32ValueB\x03\xe0\x41\x01\x1a\xeb\x01\n\nAttributes\x12W\n\rattribute_map\x18\x01 \x03(\x0b\x32@.google.devtools.cloudtrace.v2.Span.Attributes.AttributeMapEntry\x12 \n\x18\x64ropped_attributes_count\x18\x02 \x01(\x05\x1a\x62\n\x11\x41ttributeMapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12<\n\x05value\x18\x02 \x01(\x0b\x32-.google.devtools.cloudtrace.v2.AttributeValue:\x02\x38\x01\x1a\xdf\x04\n\tTimeEvent\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12N\n\nannotation\x18\x02 \x01(\x0b\x32\x38.google.devtools.cloudtrace.v2.Span.TimeEvent.AnnotationH\x00\x12S\n\rmessage_event\x18\x03 \x01(\x0b\x32:.google.devtools.cloudtrace.v2.Span.TimeEvent.MessageEventH\x00\x1a\x97\x01\n\nAnnotation\x12\x45\n\x0b\x64\x65scription\x18\x01 \x01(\x0b\x32\x30.google.devtools.cloudtrace.v2.TruncatableString\x12\x42\n\nattributes\x18\x02 \x01(\x0b\x32..google.devtools.cloudtrace.v2.Span.Attributes\x1a\xdf\x01\n\x0cMessageEvent\x12M\n\x04type\x18\x01 \x01(\x0e\x32?.google.devtools.cloudtrace.v2.Span.TimeEvent.MessageEvent.Type\x12\n\n\x02id\x18\x02 \x01(\x03\x12\x1f\n\x17uncompressed_size_bytes\x18\x03 \x01(\x03\x12\x1d\n\x15\x63ompressed_size_bytes\x18\x04 \x01(\x03"4\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x08\n\x04SENT\x10\x01\x12\x0c\n\x08RECEIVED\x10\x02\x42\x07\n\x05value\x1a\x98\x01\n\nTimeEvents\x12\x41\n\ntime_event\x18\x01 \x03(\x0b\x32-.google.devtools.cloudtrace.v2.Span.TimeEvent\x12!\n\x19\x64ropped_annotations_count\x18\x02 \x01(\x05\x12$\n\x1c\x64ropped_message_events_count\x18\x03 \x01(\x05\x1a\xf7\x01\n\x04Link\x12\x10\n\x08trace_id\x18\x01 \x01(\t\x12\x0f\n\x07span_id\x18\x02 \x01(\t\x12;\n\x04type\x18\x03 \x01(\x0e\x32-.google.devtools.cloudtrace.v2.Span.Link.Type\x12\x42\n\nattributes\x18\x04 \x01(\x0b\x32..google.devtools.cloudtrace.v2.Span.Attributes"K\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x15\n\x11\x43HILD_LINKED_SPAN\x10\x01\x12\x16\n\x12PARENT_LINKED_SPAN\x10\x02\x1a\\\n\x05Links\x12\x36\n\x04link\x18\x01 \x03(\x0b\x32(.google.devtools.cloudtrace.v2.Span.Link\x12\x1b\n\x13\x64ropped_links_count\x18\x02 \x01(\x05:S\xea\x41P\n\x1e\x63loudtrace.googleapis.com/Span\x12.projects/{project}/traces/{trace}/spans/{span}"\x8e\x01\n\x0e\x41ttributeValue\x12H\n\x0cstring_value\x18\x01 \x01(\x0b\x32\x30.google.devtools.cloudtrace.v2.TruncatableStringH\x00\x12\x13\n\tint_value\x18\x02 \x01(\x03H\x00\x12\x14\n\nbool_value\x18\x03 \x01(\x08H\x00\x42\x07\n\x05value"\x89\x05\n\nStackTrace\x12K\n\x0cstack_frames\x18\x01 \x01(\x0b\x32\x35.google.devtools.cloudtrace.v2.StackTrace.StackFrames\x12\x1b\n\x13stack_trace_hash_id\x18\x02 \x01(\x03\x1a\x9e\x03\n\nStackFrame\x12G\n\rfunction_name\x18\x01 \x01(\x0b\x32\x30.google.devtools.cloudtrace.v2.TruncatableString\x12P\n\x16original_function_name\x18\x02 \x01(\x0b\x32\x30.google.devtools.cloudtrace.v2.TruncatableString\x12\x43\n\tfile_name\x18\x03 \x01(\x0b\x32\x30.google.devtools.cloudtrace.v2.TruncatableString\x12\x13\n\x0bline_number\x18\x04 \x01(\x03\x12\x15\n\rcolumn_number\x18\x05 \x01(\x03\x12:\n\x0bload_module\x18\x06 \x01(\x0b\x32%.google.devtools.cloudtrace.v2.Module\x12H\n\x0esource_version\x18\x07 \x01(\x0b\x32\x30.google.devtools.cloudtrace.v2.TruncatableString\x1ap\n\x0bStackFrames\x12\x43\n\x05\x66rame\x18\x01 \x03(\x0b\x32\x34.google.devtools.cloudtrace.v2.StackTrace.StackFrame\x12\x1c\n\x14\x64ropped_frames_count\x18\x02 \x01(\x05"\x8e\x01\n\x06Module\x12@\n\x06module\x18\x01 \x01(\x0b\x32\x30.google.devtools.cloudtrace.v2.TruncatableString\x12\x42\n\x08\x62uild_id\x18\x02 \x01(\x0b\x32\x30.google.devtools.cloudtrace.v2.TruncatableString"@\n\x11TruncatableString\x12\r\n\x05value\x18\x01 \x01(\t\x12\x1c\n\x14truncated_byte_count\x18\x02 \x01(\x05\x42\xc5\x01\n!com.google.devtools.cloudtrace.v2B\nTraceProtoP\x01ZGgoogle.golang.org/genproto/googleapis/devtools/cloudtrace/v2;cloudtrace\xaa\x02\x15Google.Cloud.Trace.V2\xca\x02\x15Google\\Cloud\\Trace\\V2\xea\x02\x18Google::Cloud::Trace::V2b\x06proto3',
-    dependencies=[
-        google_dot_api_dot_annotations__pb2.DESCRIPTOR,
-        google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,
-        google_dot_api_dot_resource__pb2.DESCRIPTOR,
-        google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,
-        google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,
-        google_dot_rpc_dot_status__pb2.DESCRIPTOR,
-    ],
-)
+  name='google/cloud/devtools/cloudtrace_v2/proto/trace.proto',
+  package='google.devtools.cloudtrace.v2',
+  syntax='proto3',
+  serialized_options=b'\n!com.google.devtools.cloudtrace.v2B\nTraceProtoP\001ZGgoogle.golang.org/genproto/googleapis/devtools/cloudtrace/v2;cloudtrace\252\002\025Google.Cloud.Trace.V2\312\002\025Google\\Cloud\\Trace\\V2\352\002\030Google::Cloud::Trace::V2',
+  create_key=_descriptor._internal_create_key,
+  serialized_pb=b'\n5google/cloud/devtools/cloudtrace_v2/proto/trace.proto\x12\x1dgoogle.devtools.cloudtrace.v2\x1a\x1cgoogle/api/annotations.proto\x1a\x1fgoogle/api/field_behavior.proto\x1a\x19google/api/resource.proto\x1a\x1fgoogle/protobuf/timestamp.proto\x1a\x1egoogle/protobuf/wrappers.proto\x1a\x17google/rpc/status.proto\"\xc2\x10\n\x04Span\x12\x11\n\x04name\x18\x01 \x01(\tB\x03\xe0\x41\x02\x12\x14\n\x07span_id\x18\x02 \x01(\tB\x03\xe0\x41\x02\x12\x16\n\x0eparent_span_id\x18\x03 \x01(\t\x12K\n\x0c\x64isplay_name\x18\x04 \x01(\x0b\x32\x30.google.devtools.cloudtrace.v2.TruncatableStringB\x03\xe0\x41\x02\x12\x33\n\nstart_time\x18\x05 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x02\x12\x31\n\x08\x65nd_time\x18\x06 \x01(\x0b\x32\x1a.google.protobuf.TimestampB\x03\xe0\x41\x02\x12\x42\n\nattributes\x18\x07 \x01(\x0b\x32..google.devtools.cloudtrace.v2.Span.Attributes\x12>\n\x0bstack_trace\x18\x08 \x01(\x0b\x32).google.devtools.cloudtrace.v2.StackTrace\x12\x43\n\x0btime_events\x18\t \x01(\x0b\x32..google.devtools.cloudtrace.v2.Span.TimeEvents\x12\x38\n\x05links\x18\n \x01(\x0b\x32).google.devtools.cloudtrace.v2.Span.Links\x12\'\n\x06status\x18\x0b \x01(\x0b\x32\x12.google.rpc.StatusB\x03\xe0\x41\x01\x12\x44\n\x1bsame_process_as_parent_span\x18\x0c \x01(\x0b\x32\x1a.google.protobuf.BoolValueB\x03\xe0\x41\x01\x12:\n\x10\x63hild_span_count\x18\r \x01(\x0b\x32\x1b.google.protobuf.Int32ValueB\x03\xe0\x41\x01\x1a\xeb\x01\n\nAttributes\x12W\n\rattribute_map\x18\x01 \x03(\x0b\x32@.google.devtools.cloudtrace.v2.Span.Attributes.AttributeMapEntry\x12 \n\x18\x64ropped_attributes_count\x18\x02 \x01(\x05\x1a\x62\n\x11\x41ttributeMapEntry\x12\x0b\n\x03key\x18\x01 \x01(\t\x12<\n\x05value\x18\x02 \x01(\x0b\x32-.google.devtools.cloudtrace.v2.AttributeValue:\x02\x38\x01\x1a\xdf\x04\n\tTimeEvent\x12(\n\x04time\x18\x01 \x01(\x0b\x32\x1a.google.protobuf.Timestamp\x12N\n\nannotation\x18\x02 \x01(\x0b\x32\x38.google.devtools.cloudtrace.v2.Span.TimeEvent.AnnotationH\x00\x12S\n\rmessage_event\x18\x03 \x01(\x0b\x32:.google.devtools.cloudtrace.v2.Span.TimeEvent.MessageEventH\x00\x1a\x97\x01\n\nAnnotation\x12\x45\n\x0b\x64\x65scription\x18\x01 \x01(\x0b\x32\x30.google.devtools.cloudtrace.v2.TruncatableString\x12\x42\n\nattributes\x18\x02 \x01(\x0b\x32..google.devtools.cloudtrace.v2.Span.Attributes\x1a\xdf\x01\n\x0cMessageEvent\x12M\n\x04type\x18\x01 \x01(\x0e\x32?.google.devtools.cloudtrace.v2.Span.TimeEvent.MessageEvent.Type\x12\n\n\x02id\x18\x02 \x01(\x03\x12\x1f\n\x17uncompressed_size_bytes\x18\x03 \x01(\x03\x12\x1d\n\x15\x63ompressed_size_bytes\x18\x04 \x01(\x03\"4\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x08\n\x04SENT\x10\x01\x12\x0c\n\x08RECEIVED\x10\x02\x42\x07\n\x05value\x1a\x98\x01\n\nTimeEvents\x12\x41\n\ntime_event\x18\x01 \x03(\x0b\x32-.google.devtools.cloudtrace.v2.Span.TimeEvent\x12!\n\x19\x64ropped_annotations_count\x18\x02 \x01(\x05\x12$\n\x1c\x64ropped_message_events_count\x18\x03 \x01(\x05\x1a\xf7\x01\n\x04Link\x12\x10\n\x08trace_id\x18\x01 \x01(\t\x12\x0f\n\x07span_id\x18\x02 \x01(\t\x12;\n\x04type\x18\x03 \x01(\x0e\x32-.google.devtools.cloudtrace.v2.Span.Link.Type\x12\x42\n\nattributes\x18\x04 \x01(\x0b\x32..google.devtools.cloudtrace.v2.Span.Attributes\"K\n\x04Type\x12\x14\n\x10TYPE_UNSPECIFIED\x10\x00\x12\x15\n\x11\x43HILD_LINKED_SPAN\x10\x01\x12\x16\n\x12PARENT_LINKED_SPAN\x10\x02\x1a\\\n\x05Links\x12\x36\n\x04link\x18\x01 \x03(\x0b\x32(.google.devtools.cloudtrace.v2.Span.Link\x12\x1b\n\x13\x64ropped_links_count\x18\x02 \x01(\x05:S\xea\x41P\n\x1e\x63loudtrace.googleapis.com/Span\x12.projects/{project}/traces/{trace}/spans/{span}\"\x8e\x01\n\x0e\x41ttributeValue\x12H\n\x0cstring_value\x18\x01 \x01(\x0b\x32\x30.google.devtools.cloudtrace.v2.TruncatableStringH\x00\x12\x13\n\tint_value\x18\x02 \x01(\x03H\x00\x12\x14\n\nbool_value\x18\x03 \x01(\x08H\x00\x42\x07\n\x05value\"\x89\x05\n\nStackTrace\x12K\n\x0cstack_frames\x18\x01 \x01(\x0b\x32\x35.google.devtools.cloudtrace.v2.StackTrace.StackFrames\x12\x1b\n\x13stack_trace_hash_id\x18\x02 \x01(\x03\x1a\x9e\x03\n\nStackFrame\x12G\n\rfunction_name\x18\x01 \x01(\x0b\x32\x30.google.devtools.cloudtrace.v2.TruncatableString\x12P\n\x16original_function_name\x18\x02 \x01(\x0b\x32\x30.google.devtools.cloudtrace.v2.TruncatableString\x12\x43\n\tfile_name\x18\x03 \x01(\x0b\x32\x30.google.devtools.cloudtrace.v2.TruncatableString\x12\x13\n\x0bline_number\x18\x04 \x01(\x03\x12\x15\n\rcolumn_number\x18\x05 \x01(\x03\x12:\n\x0bload_module\x18\x06 \x01(\x0b\x32%.google.devtools.cloudtrace.v2.Module\x12H\n\x0esource_version\x18\x07 \x01(\x0b\x32\x30.google.devtools.cloudtrace.v2.TruncatableString\x1ap\n\x0bStackFrames\x12\x43\n\x05\x66rame\x18\x01 \x03(\x0b\x32\x34.google.devtools.cloudtrace.v2.StackTrace.StackFrame\x12\x1c\n\x14\x64ropped_frames_count\x18\x02 \x01(\x05\"\x8e\x01\n\x06Module\x12@\n\x06module\x18\x01 \x01(\x0b\x32\x30.google.devtools.cloudtrace.v2.TruncatableString\x12\x42\n\x08\x62uild_id\x18\x02 \x01(\x0b\x32\x30.google.devtools.cloudtrace.v2.TruncatableString\"@\n\x11TruncatableString\x12\r\n\x05value\x18\x01 \x01(\t\x12\x1c\n\x14truncated_byte_count\x18\x02 \x01(\x05\x42\xc5\x01\n!com.google.devtools.cloudtrace.v2B\nTraceProtoP\x01ZGgoogle.golang.org/genproto/googleapis/devtools/cloudtrace/v2;cloudtrace\xaa\x02\x15Google.Cloud.Trace.V2\xca\x02\x15Google\\Cloud\\Trace\\V2\xea\x02\x18Google::Cloud::Trace::V2b\x06proto3'
+  ,
+  dependencies=[google_dot_api_dot_annotations__pb2.DESCRIPTOR,google_dot_api_dot_field__behavior__pb2.DESCRIPTOR,google_dot_api_dot_resource__pb2.DESCRIPTOR,google_dot_protobuf_dot_timestamp__pb2.DESCRIPTOR,google_dot_protobuf_dot_wrappers__pb2.DESCRIPTOR,google_dot_rpc_dot_status__pb2.DESCRIPTOR,])
+
 
 
 _SPAN_TIMEEVENT_MESSAGEEVENT_TYPE = _descriptor.EnumDescriptor(
-    name="Type",
-    full_name="google.devtools.cloudtrace.v2.Span.TimeEvent.MessageEvent.Type",
-    filename=None,
-    file=DESCRIPTOR,
-    create_key=_descriptor._internal_create_key,
-    values=[
-        _descriptor.EnumValueDescriptor(
-            name="TYPE_UNSPECIFIED",
-            index=0,
-            number=0,
-            serialized_options=None,
-            type=None,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.EnumValueDescriptor(
-            name="SENT",
-            index=1,
-            number=1,
-            serialized_options=None,
-            type=None,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.EnumValueDescriptor(
-            name="RECEIVED",
-            index=2,
-            number=2,
-            serialized_options=None,
-            type=None,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    containing_type=None,
-    serialized_options=None,
-    serialized_start=1738,
-    serialized_end=1790,
+  name='Type',
+  full_name='google.devtools.cloudtrace.v2.Span.TimeEvent.MessageEvent.Type',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='TYPE_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='SENT', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='RECEIVED', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=1738,
+  serialized_end=1790,
 )
 _sym_db.RegisterEnumDescriptor(_SPAN_TIMEEVENT_MESSAGEEVENT_TYPE)
 
 _SPAN_LINK_TYPE = _descriptor.EnumDescriptor(
-    name="Type",
-    full_name="google.devtools.cloudtrace.v2.Span.Link.Type",
-    filename=None,
-    file=DESCRIPTOR,
-    create_key=_descriptor._internal_create_key,
-    values=[
-        _descriptor.EnumValueDescriptor(
-            name="TYPE_UNSPECIFIED",
-            index=0,
-            number=0,
-            serialized_options=None,
-            type=None,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.EnumValueDescriptor(
-            name="CHILD_LINKED_SPAN",
-            index=1,
-            number=1,
-            serialized_options=None,
-            type=None,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.EnumValueDescriptor(
-            name="PARENT_LINKED_SPAN",
-            index=2,
-            number=2,
-            serialized_options=None,
-            type=None,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    containing_type=None,
-    serialized_options=None,
-    serialized_start=2129,
-    serialized_end=2204,
+  name='Type',
+  full_name='google.devtools.cloudtrace.v2.Span.Link.Type',
+  filename=None,
+  file=DESCRIPTOR,
+  create_key=_descriptor._internal_create_key,
+  values=[
+    _descriptor.EnumValueDescriptor(
+      name='TYPE_UNSPECIFIED', index=0, number=0,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='CHILD_LINKED_SPAN', index=1, number=1,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+    _descriptor.EnumValueDescriptor(
+      name='PARENT_LINKED_SPAN', index=2, number=2,
+      serialized_options=None,
+      type=None,
+      create_key=_descriptor._internal_create_key),
+  ],
+  containing_type=None,
+  serialized_options=None,
+  serialized_start=2129,
+  serialized_end=2204,
 )
 _sym_db.RegisterEnumDescriptor(_SPAN_LINK_TYPE)
 
 
 _SPAN_ATTRIBUTES_ATTRIBUTEMAPENTRY = _descriptor.Descriptor(
-    name="AttributeMapEntry",
-    full_name="google.devtools.cloudtrace.v2.Span.Attributes.AttributeMapEntry",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="key",
-            full_name="google.devtools.cloudtrace.v2.Span.Attributes.AttributeMapEntry.key",
-            index=0,
-            number=1,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="value",
-            full_name="google.devtools.cloudtrace.v2.Span.Attributes.AttributeMapEntry.value",
-            index=1,
-            number=2,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=b"8\001",
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=1091,
-    serialized_end=1189,
+  name='AttributeMapEntry',
+  full_name='google.devtools.cloudtrace.v2.Span.Attributes.AttributeMapEntry',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='google.devtools.cloudtrace.v2.Span.Attributes.AttributeMapEntry.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='google.devtools.cloudtrace.v2.Span.Attributes.AttributeMapEntry.value', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=b'8\001',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1091,
+  serialized_end=1189,
 )
 
 _SPAN_ATTRIBUTES = _descriptor.Descriptor(
-    name="Attributes",
-    full_name="google.devtools.cloudtrace.v2.Span.Attributes",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="attribute_map",
-            full_name="google.devtools.cloudtrace.v2.Span.Attributes.attribute_map",
-            index=0,
-            number=1,
-            type=11,
-            cpp_type=10,
-            label=3,
-            has_default_value=False,
-            default_value=[],
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="dropped_attributes_count",
-            full_name="google.devtools.cloudtrace.v2.Span.Attributes.dropped_attributes_count",
-            index=1,
-            number=2,
-            type=5,
-            cpp_type=1,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[_SPAN_ATTRIBUTES_ATTRIBUTEMAPENTRY,],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=954,
-    serialized_end=1189,
+  name='Attributes',
+  full_name='google.devtools.cloudtrace.v2.Span.Attributes',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='attribute_map', full_name='google.devtools.cloudtrace.v2.Span.Attributes.attribute_map', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='dropped_attributes_count', full_name='google.devtools.cloudtrace.v2.Span.Attributes.dropped_attributes_count', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_SPAN_ATTRIBUTES_ATTRIBUTEMAPENTRY, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=954,
+  serialized_end=1189,
 )
 
 _SPAN_TIMEEVENT_ANNOTATION = _descriptor.Descriptor(
-    name="Annotation",
-    full_name="google.devtools.cloudtrace.v2.Span.TimeEvent.Annotation",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="description",
-            full_name="google.devtools.cloudtrace.v2.Span.TimeEvent.Annotation.description",
-            index=0,
-            number=1,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="attributes",
-            full_name="google.devtools.cloudtrace.v2.Span.TimeEvent.Annotation.attributes",
-            index=1,
-            number=2,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=1413,
-    serialized_end=1564,
+  name='Annotation',
+  full_name='google.devtools.cloudtrace.v2.Span.TimeEvent.Annotation',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='description', full_name='google.devtools.cloudtrace.v2.Span.TimeEvent.Annotation.description', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='attributes', full_name='google.devtools.cloudtrace.v2.Span.TimeEvent.Annotation.attributes', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1413,
+  serialized_end=1564,
 )
 
 _SPAN_TIMEEVENT_MESSAGEEVENT = _descriptor.Descriptor(
-    name="MessageEvent",
-    full_name="google.devtools.cloudtrace.v2.Span.TimeEvent.MessageEvent",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="type",
-            full_name="google.devtools.cloudtrace.v2.Span.TimeEvent.MessageEvent.type",
-            index=0,
-            number=1,
-            type=14,
-            cpp_type=8,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="id",
-            full_name="google.devtools.cloudtrace.v2.Span.TimeEvent.MessageEvent.id",
-            index=1,
-            number=2,
-            type=3,
-            cpp_type=2,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="uncompressed_size_bytes",
-            full_name="google.devtools.cloudtrace.v2.Span.TimeEvent.MessageEvent.uncompressed_size_bytes",
-            index=2,
-            number=3,
-            type=3,
-            cpp_type=2,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="compressed_size_bytes",
-            full_name="google.devtools.cloudtrace.v2.Span.TimeEvent.MessageEvent.compressed_size_bytes",
-            index=3,
-            number=4,
-            type=3,
-            cpp_type=2,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[_SPAN_TIMEEVENT_MESSAGEEVENT_TYPE,],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=1567,
-    serialized_end=1790,
+  name='MessageEvent',
+  full_name='google.devtools.cloudtrace.v2.Span.TimeEvent.MessageEvent',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='type', full_name='google.devtools.cloudtrace.v2.Span.TimeEvent.MessageEvent.type', index=0,
+      number=1, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='id', full_name='google.devtools.cloudtrace.v2.Span.TimeEvent.MessageEvent.id', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='uncompressed_size_bytes', full_name='google.devtools.cloudtrace.v2.Span.TimeEvent.MessageEvent.uncompressed_size_bytes', index=2,
+      number=3, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='compressed_size_bytes', full_name='google.devtools.cloudtrace.v2.Span.TimeEvent.MessageEvent.compressed_size_bytes', index=3,
+      number=4, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _SPAN_TIMEEVENT_MESSAGEEVENT_TYPE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1567,
+  serialized_end=1790,
 )
 
 _SPAN_TIMEEVENT = _descriptor.Descriptor(
-    name="TimeEvent",
-    full_name="google.devtools.cloudtrace.v2.Span.TimeEvent",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="time",
-            full_name="google.devtools.cloudtrace.v2.Span.TimeEvent.time",
-            index=0,
-            number=1,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="annotation",
-            full_name="google.devtools.cloudtrace.v2.Span.TimeEvent.annotation",
-            index=1,
-            number=2,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="message_event",
-            full_name="google.devtools.cloudtrace.v2.Span.TimeEvent.message_event",
-            index=2,
-            number=3,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[_SPAN_TIMEEVENT_ANNOTATION, _SPAN_TIMEEVENT_MESSAGEEVENT,],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[
-        _descriptor.OneofDescriptor(
-            name="value",
-            full_name="google.devtools.cloudtrace.v2.Span.TimeEvent.value",
-            index=0,
-            containing_type=None,
-            create_key=_descriptor._internal_create_key,
-            fields=[],
-        ),
-    ],
-    serialized_start=1192,
-    serialized_end=1799,
+  name='TimeEvent',
+  full_name='google.devtools.cloudtrace.v2.Span.TimeEvent',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='time', full_name='google.devtools.cloudtrace.v2.Span.TimeEvent.time', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='annotation', full_name='google.devtools.cloudtrace.v2.Span.TimeEvent.annotation', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='message_event', full_name='google.devtools.cloudtrace.v2.Span.TimeEvent.message_event', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_SPAN_TIMEEVENT_ANNOTATION, _SPAN_TIMEEVENT_MESSAGEEVENT, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='value', full_name='google.devtools.cloudtrace.v2.Span.TimeEvent.value',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=1192,
+  serialized_end=1799,
 )
 
 _SPAN_TIMEEVENTS = _descriptor.Descriptor(
-    name="TimeEvents",
-    full_name="google.devtools.cloudtrace.v2.Span.TimeEvents",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="time_event",
-            full_name="google.devtools.cloudtrace.v2.Span.TimeEvents.time_event",
-            index=0,
-            number=1,
-            type=11,
-            cpp_type=10,
-            label=3,
-            has_default_value=False,
-            default_value=[],
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="dropped_annotations_count",
-            full_name="google.devtools.cloudtrace.v2.Span.TimeEvents.dropped_annotations_count",
-            index=1,
-            number=2,
-            type=5,
-            cpp_type=1,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="dropped_message_events_count",
-            full_name="google.devtools.cloudtrace.v2.Span.TimeEvents.dropped_message_events_count",
-            index=2,
-            number=3,
-            type=5,
-            cpp_type=1,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=1802,
-    serialized_end=1954,
+  name='TimeEvents',
+  full_name='google.devtools.cloudtrace.v2.Span.TimeEvents',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='time_event', full_name='google.devtools.cloudtrace.v2.Span.TimeEvents.time_event', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='dropped_annotations_count', full_name='google.devtools.cloudtrace.v2.Span.TimeEvents.dropped_annotations_count', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='dropped_message_events_count', full_name='google.devtools.cloudtrace.v2.Span.TimeEvents.dropped_message_events_count', index=2,
+      number=3, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1802,
+  serialized_end=1954,
 )
 
 _SPAN_LINK = _descriptor.Descriptor(
-    name="Link",
-    full_name="google.devtools.cloudtrace.v2.Span.Link",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="trace_id",
-            full_name="google.devtools.cloudtrace.v2.Span.Link.trace_id",
-            index=0,
-            number=1,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="span_id",
-            full_name="google.devtools.cloudtrace.v2.Span.Link.span_id",
-            index=1,
-            number=2,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="type",
-            full_name="google.devtools.cloudtrace.v2.Span.Link.type",
-            index=2,
-            number=3,
-            type=14,
-            cpp_type=8,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="attributes",
-            full_name="google.devtools.cloudtrace.v2.Span.Link.attributes",
-            index=3,
-            number=4,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[_SPAN_LINK_TYPE,],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=1957,
-    serialized_end=2204,
+  name='Link',
+  full_name='google.devtools.cloudtrace.v2.Span.Link',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='trace_id', full_name='google.devtools.cloudtrace.v2.Span.Link.trace_id', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='span_id', full_name='google.devtools.cloudtrace.v2.Span.Link.span_id', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='type', full_name='google.devtools.cloudtrace.v2.Span.Link.type', index=2,
+      number=3, type=14, cpp_type=8, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='attributes', full_name='google.devtools.cloudtrace.v2.Span.Link.attributes', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+    _SPAN_LINK_TYPE,
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=1957,
+  serialized_end=2204,
 )
 
 _SPAN_LINKS = _descriptor.Descriptor(
-    name="Links",
-    full_name="google.devtools.cloudtrace.v2.Span.Links",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="link",
-            full_name="google.devtools.cloudtrace.v2.Span.Links.link",
-            index=0,
-            number=1,
-            type=11,
-            cpp_type=10,
-            label=3,
-            has_default_value=False,
-            default_value=[],
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="dropped_links_count",
-            full_name="google.devtools.cloudtrace.v2.Span.Links.dropped_links_count",
-            index=1,
-            number=2,
-            type=5,
-            cpp_type=1,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=2206,
-    serialized_end=2298,
+  name='Links',
+  full_name='google.devtools.cloudtrace.v2.Span.Links',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='link', full_name='google.devtools.cloudtrace.v2.Span.Links.link', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='dropped_links_count', full_name='google.devtools.cloudtrace.v2.Span.Links.dropped_links_count', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2206,
+  serialized_end=2298,
 )
 
 _SPAN = _descriptor.Descriptor(
-    name="Span",
-    full_name="google.devtools.cloudtrace.v2.Span",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="name",
-            full_name="google.devtools.cloudtrace.v2.Span.name",
-            index=0,
-            number=1,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=b"\340A\002",
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="span_id",
-            full_name="google.devtools.cloudtrace.v2.Span.span_id",
-            index=1,
-            number=2,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=b"\340A\002",
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="parent_span_id",
-            full_name="google.devtools.cloudtrace.v2.Span.parent_span_id",
-            index=2,
-            number=3,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="display_name",
-            full_name="google.devtools.cloudtrace.v2.Span.display_name",
-            index=3,
-            number=4,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=b"\340A\002",
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="start_time",
-            full_name="google.devtools.cloudtrace.v2.Span.start_time",
-            index=4,
-            number=5,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=b"\340A\002",
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="end_time",
-            full_name="google.devtools.cloudtrace.v2.Span.end_time",
-            index=5,
-            number=6,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=b"\340A\002",
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="attributes",
-            full_name="google.devtools.cloudtrace.v2.Span.attributes",
-            index=6,
-            number=7,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="stack_trace",
-            full_name="google.devtools.cloudtrace.v2.Span.stack_trace",
-            index=7,
-            number=8,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="time_events",
-            full_name="google.devtools.cloudtrace.v2.Span.time_events",
-            index=8,
-            number=9,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="links",
-            full_name="google.devtools.cloudtrace.v2.Span.links",
-            index=9,
-            number=10,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="status",
-            full_name="google.devtools.cloudtrace.v2.Span.status",
-            index=10,
-            number=11,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=b"\340A\001",
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="same_process_as_parent_span",
-            full_name="google.devtools.cloudtrace.v2.Span.same_process_as_parent_span",
-            index=11,
-            number=12,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=b"\340A\001",
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="child_span_count",
-            full_name="google.devtools.cloudtrace.v2.Span.child_span_count",
-            index=12,
-            number=13,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=b"\340A\001",
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[
-        _SPAN_ATTRIBUTES,
-        _SPAN_TIMEEVENT,
-        _SPAN_TIMEEVENTS,
-        _SPAN_LINK,
-        _SPAN_LINKS,
-    ],
-    enum_types=[],
-    serialized_options=b"\352AP\n\036cloudtrace.googleapis.com/Span\022.projects/{project}/traces/{trace}/spans/{span}",
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=269,
-    serialized_end=2383,
+  name='Span',
+  full_name='google.devtools.cloudtrace.v2.Span',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='name', full_name='google.devtools.cloudtrace.v2.Span.name', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='span_id', full_name='google.devtools.cloudtrace.v2.Span.span_id', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='parent_span_id', full_name='google.devtools.cloudtrace.v2.Span.parent_span_id', index=2,
+      number=3, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='display_name', full_name='google.devtools.cloudtrace.v2.Span.display_name', index=3,
+      number=4, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='start_time', full_name='google.devtools.cloudtrace.v2.Span.start_time', index=4,
+      number=5, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='end_time', full_name='google.devtools.cloudtrace.v2.Span.end_time', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\002', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='attributes', full_name='google.devtools.cloudtrace.v2.Span.attributes', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='stack_trace', full_name='google.devtools.cloudtrace.v2.Span.stack_trace', index=7,
+      number=8, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='time_events', full_name='google.devtools.cloudtrace.v2.Span.time_events', index=8,
+      number=9, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='links', full_name='google.devtools.cloudtrace.v2.Span.links', index=9,
+      number=10, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='status', full_name='google.devtools.cloudtrace.v2.Span.status', index=10,
+      number=11, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='same_process_as_parent_span', full_name='google.devtools.cloudtrace.v2.Span.same_process_as_parent_span', index=11,
+      number=12, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='child_span_count', full_name='google.devtools.cloudtrace.v2.Span.child_span_count', index=12,
+      number=13, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=b'\340A\001', file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_SPAN_ATTRIBUTES, _SPAN_TIMEEVENT, _SPAN_TIMEEVENTS, _SPAN_LINK, _SPAN_LINKS, ],
+  enum_types=[
+  ],
+  serialized_options=b'\352AP\n\036cloudtrace.googleapis.com/Span\022.projects/{project}/traces/{trace}/spans/{span}',
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=269,
+  serialized_end=2383,
 )
 
 
 _ATTRIBUTEVALUE = _descriptor.Descriptor(
-    name="AttributeValue",
-    full_name="google.devtools.cloudtrace.v2.AttributeValue",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="string_value",
-            full_name="google.devtools.cloudtrace.v2.AttributeValue.string_value",
-            index=0,
-            number=1,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="int_value",
-            full_name="google.devtools.cloudtrace.v2.AttributeValue.int_value",
-            index=1,
-            number=2,
-            type=3,
-            cpp_type=2,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="bool_value",
-            full_name="google.devtools.cloudtrace.v2.AttributeValue.bool_value",
-            index=2,
-            number=3,
-            type=8,
-            cpp_type=7,
-            label=1,
-            has_default_value=False,
-            default_value=False,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[
-        _descriptor.OneofDescriptor(
-            name="value",
-            full_name="google.devtools.cloudtrace.v2.AttributeValue.value",
-            index=0,
-            containing_type=None,
-            create_key=_descriptor._internal_create_key,
-            fields=[],
-        ),
-    ],
-    serialized_start=2386,
-    serialized_end=2528,
+  name='AttributeValue',
+  full_name='google.devtools.cloudtrace.v2.AttributeValue',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='string_value', full_name='google.devtools.cloudtrace.v2.AttributeValue.string_value', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='int_value', full_name='google.devtools.cloudtrace.v2.AttributeValue.int_value', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='bool_value', full_name='google.devtools.cloudtrace.v2.AttributeValue.bool_value', index=2,
+      number=3, type=8, cpp_type=7, label=1,
+      has_default_value=False, default_value=False,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+    _descriptor.OneofDescriptor(
+      name='value', full_name='google.devtools.cloudtrace.v2.AttributeValue.value',
+      index=0, containing_type=None,
+      create_key=_descriptor._internal_create_key,
+    fields=[]),
+  ],
+  serialized_start=2386,
+  serialized_end=2528,
 )
 
 
 _STACKTRACE_STACKFRAME = _descriptor.Descriptor(
-    name="StackFrame",
-    full_name="google.devtools.cloudtrace.v2.StackTrace.StackFrame",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="function_name",
-            full_name="google.devtools.cloudtrace.v2.StackTrace.StackFrame.function_name",
-            index=0,
-            number=1,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="original_function_name",
-            full_name="google.devtools.cloudtrace.v2.StackTrace.StackFrame.original_function_name",
-            index=1,
-            number=2,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="file_name",
-            full_name="google.devtools.cloudtrace.v2.StackTrace.StackFrame.file_name",
-            index=2,
-            number=3,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="line_number",
-            full_name="google.devtools.cloudtrace.v2.StackTrace.StackFrame.line_number",
-            index=3,
-            number=4,
-            type=3,
-            cpp_type=2,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="column_number",
-            full_name="google.devtools.cloudtrace.v2.StackTrace.StackFrame.column_number",
-            index=4,
-            number=5,
-            type=3,
-            cpp_type=2,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="load_module",
-            full_name="google.devtools.cloudtrace.v2.StackTrace.StackFrame.load_module",
-            index=5,
-            number=6,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="source_version",
-            full_name="google.devtools.cloudtrace.v2.StackTrace.StackFrame.source_version",
-            index=6,
-            number=7,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=2652,
-    serialized_end=3066,
+  name='StackFrame',
+  full_name='google.devtools.cloudtrace.v2.StackTrace.StackFrame',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='function_name', full_name='google.devtools.cloudtrace.v2.StackTrace.StackFrame.function_name', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='original_function_name', full_name='google.devtools.cloudtrace.v2.StackTrace.StackFrame.original_function_name', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='file_name', full_name='google.devtools.cloudtrace.v2.StackTrace.StackFrame.file_name', index=2,
+      number=3, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='line_number', full_name='google.devtools.cloudtrace.v2.StackTrace.StackFrame.line_number', index=3,
+      number=4, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='column_number', full_name='google.devtools.cloudtrace.v2.StackTrace.StackFrame.column_number', index=4,
+      number=5, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='load_module', full_name='google.devtools.cloudtrace.v2.StackTrace.StackFrame.load_module', index=5,
+      number=6, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='source_version', full_name='google.devtools.cloudtrace.v2.StackTrace.StackFrame.source_version', index=6,
+      number=7, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2652,
+  serialized_end=3066,
 )
 
 _STACKTRACE_STACKFRAMES = _descriptor.Descriptor(
-    name="StackFrames",
-    full_name="google.devtools.cloudtrace.v2.StackTrace.StackFrames",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="frame",
-            full_name="google.devtools.cloudtrace.v2.StackTrace.StackFrames.frame",
-            index=0,
-            number=1,
-            type=11,
-            cpp_type=10,
-            label=3,
-            has_default_value=False,
-            default_value=[],
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="dropped_frames_count",
-            full_name="google.devtools.cloudtrace.v2.StackTrace.StackFrames.dropped_frames_count",
-            index=1,
-            number=2,
-            type=5,
-            cpp_type=1,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=3068,
-    serialized_end=3180,
+  name='StackFrames',
+  full_name='google.devtools.cloudtrace.v2.StackTrace.StackFrames',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='frame', full_name='google.devtools.cloudtrace.v2.StackTrace.StackFrames.frame', index=0,
+      number=1, type=11, cpp_type=10, label=3,
+      has_default_value=False, default_value=[],
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='dropped_frames_count', full_name='google.devtools.cloudtrace.v2.StackTrace.StackFrames.dropped_frames_count', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3068,
+  serialized_end=3180,
 )
 
 _STACKTRACE = _descriptor.Descriptor(
-    name="StackTrace",
-    full_name="google.devtools.cloudtrace.v2.StackTrace",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="stack_frames",
-            full_name="google.devtools.cloudtrace.v2.StackTrace.stack_frames",
-            index=0,
-            number=1,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="stack_trace_hash_id",
-            full_name="google.devtools.cloudtrace.v2.StackTrace.stack_trace_hash_id",
-            index=1,
-            number=2,
-            type=3,
-            cpp_type=2,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[_STACKTRACE_STACKFRAME, _STACKTRACE_STACKFRAMES,],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=2531,
-    serialized_end=3180,
+  name='StackTrace',
+  full_name='google.devtools.cloudtrace.v2.StackTrace',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='stack_frames', full_name='google.devtools.cloudtrace.v2.StackTrace.stack_frames', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='stack_trace_hash_id', full_name='google.devtools.cloudtrace.v2.StackTrace.stack_trace_hash_id', index=1,
+      number=2, type=3, cpp_type=2, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[_STACKTRACE_STACKFRAME, _STACKTRACE_STACKFRAMES, ],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=2531,
+  serialized_end=3180,
 )
 
 
 _MODULE = _descriptor.Descriptor(
-    name="Module",
-    full_name="google.devtools.cloudtrace.v2.Module",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="module",
-            full_name="google.devtools.cloudtrace.v2.Module.module",
-            index=0,
-            number=1,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="build_id",
-            full_name="google.devtools.cloudtrace.v2.Module.build_id",
-            index=1,
-            number=2,
-            type=11,
-            cpp_type=10,
-            label=1,
-            has_default_value=False,
-            default_value=None,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=3183,
-    serialized_end=3325,
+  name='Module',
+  full_name='google.devtools.cloudtrace.v2.Module',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='module', full_name='google.devtools.cloudtrace.v2.Module.module', index=0,
+      number=1, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='build_id', full_name='google.devtools.cloudtrace.v2.Module.build_id', index=1,
+      number=2, type=11, cpp_type=10, label=1,
+      has_default_value=False, default_value=None,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3183,
+  serialized_end=3325,
 )
 
 
 _TRUNCATABLESTRING = _descriptor.Descriptor(
-    name="TruncatableString",
-    full_name="google.devtools.cloudtrace.v2.TruncatableString",
-    filename=None,
-    file=DESCRIPTOR,
-    containing_type=None,
-    create_key=_descriptor._internal_create_key,
-    fields=[
-        _descriptor.FieldDescriptor(
-            name="value",
-            full_name="google.devtools.cloudtrace.v2.TruncatableString.value",
-            index=0,
-            number=1,
-            type=9,
-            cpp_type=9,
-            label=1,
-            has_default_value=False,
-            default_value=b"".decode("utf-8"),
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-        _descriptor.FieldDescriptor(
-            name="truncated_byte_count",
-            full_name="google.devtools.cloudtrace.v2.TruncatableString.truncated_byte_count",
-            index=1,
-            number=2,
-            type=5,
-            cpp_type=1,
-            label=1,
-            has_default_value=False,
-            default_value=0,
-            message_type=None,
-            enum_type=None,
-            containing_type=None,
-            is_extension=False,
-            extension_scope=None,
-            serialized_options=None,
-            file=DESCRIPTOR,
-            create_key=_descriptor._internal_create_key,
-        ),
-    ],
-    extensions=[],
-    nested_types=[],
-    enum_types=[],
-    serialized_options=None,
-    is_extendable=False,
-    syntax="proto3",
-    extension_ranges=[],
-    oneofs=[],
-    serialized_start=3327,
-    serialized_end=3391,
+  name='TruncatableString',
+  full_name='google.devtools.cloudtrace.v2.TruncatableString',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  create_key=_descriptor._internal_create_key,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='value', full_name='google.devtools.cloudtrace.v2.TruncatableString.value', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=b"".decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+    _descriptor.FieldDescriptor(
+      name='truncated_byte_count', full_name='google.devtools.cloudtrace.v2.TruncatableString.truncated_byte_count', index=1,
+      number=2, type=5, cpp_type=1, label=1,
+      has_default_value=False, default_value=0,
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      serialized_options=None, file=DESCRIPTOR,  create_key=_descriptor._internal_create_key),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  serialized_options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=3327,
+  serialized_end=3391,
 )
 
-_SPAN_ATTRIBUTES_ATTRIBUTEMAPENTRY.fields_by_name[
-    "value"
-].message_type = _ATTRIBUTEVALUE
+_SPAN_ATTRIBUTES_ATTRIBUTEMAPENTRY.fields_by_name['value'].message_type = _ATTRIBUTEVALUE
 _SPAN_ATTRIBUTES_ATTRIBUTEMAPENTRY.containing_type = _SPAN_ATTRIBUTES
-_SPAN_ATTRIBUTES.fields_by_name[
-    "attribute_map"
-].message_type = _SPAN_ATTRIBUTES_ATTRIBUTEMAPENTRY
+_SPAN_ATTRIBUTES.fields_by_name['attribute_map'].message_type = _SPAN_ATTRIBUTES_ATTRIBUTEMAPENTRY
 _SPAN_ATTRIBUTES.containing_type = _SPAN
-_SPAN_TIMEEVENT_ANNOTATION.fields_by_name[
-    "description"
-].message_type = _TRUNCATABLESTRING
-_SPAN_TIMEEVENT_ANNOTATION.fields_by_name["attributes"].message_type = _SPAN_ATTRIBUTES
+_SPAN_TIMEEVENT_ANNOTATION.fields_by_name['description'].message_type = _TRUNCATABLESTRING
+_SPAN_TIMEEVENT_ANNOTATION.fields_by_name['attributes'].message_type = _SPAN_ATTRIBUTES
 _SPAN_TIMEEVENT_ANNOTATION.containing_type = _SPAN_TIMEEVENT
-_SPAN_TIMEEVENT_MESSAGEEVENT.fields_by_name[
-    "type"
-].enum_type = _SPAN_TIMEEVENT_MESSAGEEVENT_TYPE
+_SPAN_TIMEEVENT_MESSAGEEVENT.fields_by_name['type'].enum_type = _SPAN_TIMEEVENT_MESSAGEEVENT_TYPE
 _SPAN_TIMEEVENT_MESSAGEEVENT.containing_type = _SPAN_TIMEEVENT
 _SPAN_TIMEEVENT_MESSAGEEVENT_TYPE.containing_type = _SPAN_TIMEEVENT_MESSAGEEVENT
-_SPAN_TIMEEVENT.fields_by_name[
-    "time"
-].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
-_SPAN_TIMEEVENT.fields_by_name["annotation"].message_type = _SPAN_TIMEEVENT_ANNOTATION
-_SPAN_TIMEEVENT.fields_by_name[
-    "message_event"
-].message_type = _SPAN_TIMEEVENT_MESSAGEEVENT
+_SPAN_TIMEEVENT.fields_by_name['time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_SPAN_TIMEEVENT.fields_by_name['annotation'].message_type = _SPAN_TIMEEVENT_ANNOTATION
+_SPAN_TIMEEVENT.fields_by_name['message_event'].message_type = _SPAN_TIMEEVENT_MESSAGEEVENT
 _SPAN_TIMEEVENT.containing_type = _SPAN
-_SPAN_TIMEEVENT.oneofs_by_name["value"].fields.append(
-    _SPAN_TIMEEVENT.fields_by_name["annotation"]
-)
-_SPAN_TIMEEVENT.fields_by_name[
-    "annotation"
-].containing_oneof = _SPAN_TIMEEVENT.oneofs_by_name["value"]
-_SPAN_TIMEEVENT.oneofs_by_name["value"].fields.append(
-    _SPAN_TIMEEVENT.fields_by_name["message_event"]
-)
-_SPAN_TIMEEVENT.fields_by_name[
-    "message_event"
-].containing_oneof = _SPAN_TIMEEVENT.oneofs_by_name["value"]
-_SPAN_TIMEEVENTS.fields_by_name["time_event"].message_type = _SPAN_TIMEEVENT
+_SPAN_TIMEEVENT.oneofs_by_name['value'].fields.append(
+  _SPAN_TIMEEVENT.fields_by_name['annotation'])
+_SPAN_TIMEEVENT.fields_by_name['annotation'].containing_oneof = _SPAN_TIMEEVENT.oneofs_by_name['value']
+_SPAN_TIMEEVENT.oneofs_by_name['value'].fields.append(
+  _SPAN_TIMEEVENT.fields_by_name['message_event'])
+_SPAN_TIMEEVENT.fields_by_name['message_event'].containing_oneof = _SPAN_TIMEEVENT.oneofs_by_name['value']
+_SPAN_TIMEEVENTS.fields_by_name['time_event'].message_type = _SPAN_TIMEEVENT
 _SPAN_TIMEEVENTS.containing_type = _SPAN
-_SPAN_LINK.fields_by_name["type"].enum_type = _SPAN_LINK_TYPE
-_SPAN_LINK.fields_by_name["attributes"].message_type = _SPAN_ATTRIBUTES
+_SPAN_LINK.fields_by_name['type'].enum_type = _SPAN_LINK_TYPE
+_SPAN_LINK.fields_by_name['attributes'].message_type = _SPAN_ATTRIBUTES
 _SPAN_LINK.containing_type = _SPAN
 _SPAN_LINK_TYPE.containing_type = _SPAN_LINK
-_SPAN_LINKS.fields_by_name["link"].message_type = _SPAN_LINK
+_SPAN_LINKS.fields_by_name['link'].message_type = _SPAN_LINK
 _SPAN_LINKS.containing_type = _SPAN
-_SPAN.fields_by_name["display_name"].message_type = _TRUNCATABLESTRING
-_SPAN.fields_by_name[
-    "start_time"
-].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
-_SPAN.fields_by_name[
-    "end_time"
-].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
-_SPAN.fields_by_name["attributes"].message_type = _SPAN_ATTRIBUTES
-_SPAN.fields_by_name["stack_trace"].message_type = _STACKTRACE
-_SPAN.fields_by_name["time_events"].message_type = _SPAN_TIMEEVENTS
-_SPAN.fields_by_name["links"].message_type = _SPAN_LINKS
-_SPAN.fields_by_name["status"].message_type = google_dot_rpc_dot_status__pb2._STATUS
-_SPAN.fields_by_name[
-    "same_process_as_parent_span"
-].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
-_SPAN.fields_by_name[
-    "child_span_count"
-].message_type = google_dot_protobuf_dot_wrappers__pb2._INT32VALUE
-_ATTRIBUTEVALUE.fields_by_name["string_value"].message_type = _TRUNCATABLESTRING
-_ATTRIBUTEVALUE.oneofs_by_name["value"].fields.append(
-    _ATTRIBUTEVALUE.fields_by_name["string_value"]
-)
-_ATTRIBUTEVALUE.fields_by_name[
-    "string_value"
-].containing_oneof = _ATTRIBUTEVALUE.oneofs_by_name["value"]
-_ATTRIBUTEVALUE.oneofs_by_name["value"].fields.append(
-    _ATTRIBUTEVALUE.fields_by_name["int_value"]
-)
-_ATTRIBUTEVALUE.fields_by_name[
-    "int_value"
-].containing_oneof = _ATTRIBUTEVALUE.oneofs_by_name["value"]
-_ATTRIBUTEVALUE.oneofs_by_name["value"].fields.append(
-    _ATTRIBUTEVALUE.fields_by_name["bool_value"]
-)
-_ATTRIBUTEVALUE.fields_by_name[
-    "bool_value"
-].containing_oneof = _ATTRIBUTEVALUE.oneofs_by_name["value"]
-_STACKTRACE_STACKFRAME.fields_by_name["function_name"].message_type = _TRUNCATABLESTRING
-_STACKTRACE_STACKFRAME.fields_by_name[
-    "original_function_name"
-].message_type = _TRUNCATABLESTRING
-_STACKTRACE_STACKFRAME.fields_by_name["file_name"].message_type = _TRUNCATABLESTRING
-_STACKTRACE_STACKFRAME.fields_by_name["load_module"].message_type = _MODULE
-_STACKTRACE_STACKFRAME.fields_by_name[
-    "source_version"
-].message_type = _TRUNCATABLESTRING
+_SPAN.fields_by_name['display_name'].message_type = _TRUNCATABLESTRING
+_SPAN.fields_by_name['start_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_SPAN.fields_by_name['end_time'].message_type = google_dot_protobuf_dot_timestamp__pb2._TIMESTAMP
+_SPAN.fields_by_name['attributes'].message_type = _SPAN_ATTRIBUTES
+_SPAN.fields_by_name['stack_trace'].message_type = _STACKTRACE
+_SPAN.fields_by_name['time_events'].message_type = _SPAN_TIMEEVENTS
+_SPAN.fields_by_name['links'].message_type = _SPAN_LINKS
+_SPAN.fields_by_name['status'].message_type = google_dot_rpc_dot_status__pb2._STATUS
+_SPAN.fields_by_name['same_process_as_parent_span'].message_type = google_dot_protobuf_dot_wrappers__pb2._BOOLVALUE
+_SPAN.fields_by_name['child_span_count'].message_type = google_dot_protobuf_dot_wrappers__pb2._INT32VALUE
+_ATTRIBUTEVALUE.fields_by_name['string_value'].message_type = _TRUNCATABLESTRING
+_ATTRIBUTEVALUE.oneofs_by_name['value'].fields.append(
+  _ATTRIBUTEVALUE.fields_by_name['string_value'])
+_ATTRIBUTEVALUE.fields_by_name['string_value'].containing_oneof = _ATTRIBUTEVALUE.oneofs_by_name['value']
+_ATTRIBUTEVALUE.oneofs_by_name['value'].fields.append(
+  _ATTRIBUTEVALUE.fields_by_name['int_value'])
+_ATTRIBUTEVALUE.fields_by_name['int_value'].containing_oneof = _ATTRIBUTEVALUE.oneofs_by_name['value']
+_ATTRIBUTEVALUE.oneofs_by_name['value'].fields.append(
+  _ATTRIBUTEVALUE.fields_by_name['bool_value'])
+_ATTRIBUTEVALUE.fields_by_name['bool_value'].containing_oneof = _ATTRIBUTEVALUE.oneofs_by_name['value']
+_STACKTRACE_STACKFRAME.fields_by_name['function_name'].message_type = _TRUNCATABLESTRING
+_STACKTRACE_STACKFRAME.fields_by_name['original_function_name'].message_type = _TRUNCATABLESTRING
+_STACKTRACE_STACKFRAME.fields_by_name['file_name'].message_type = _TRUNCATABLESTRING
+_STACKTRACE_STACKFRAME.fields_by_name['load_module'].message_type = _MODULE
+_STACKTRACE_STACKFRAME.fields_by_name['source_version'].message_type = _TRUNCATABLESTRING
 _STACKTRACE_STACKFRAME.containing_type = _STACKTRACE
-_STACKTRACE_STACKFRAMES.fields_by_name["frame"].message_type = _STACKTRACE_STACKFRAME
+_STACKTRACE_STACKFRAMES.fields_by_name['frame'].message_type = _STACKTRACE_STACKFRAME
 _STACKTRACE_STACKFRAMES.containing_type = _STACKTRACE
-_STACKTRACE.fields_by_name["stack_frames"].message_type = _STACKTRACE_STACKFRAMES
-_MODULE.fields_by_name["module"].message_type = _TRUNCATABLESTRING
-_MODULE.fields_by_name["build_id"].message_type = _TRUNCATABLESTRING
-DESCRIPTOR.message_types_by_name["Span"] = _SPAN
-DESCRIPTOR.message_types_by_name["AttributeValue"] = _ATTRIBUTEVALUE
-DESCRIPTOR.message_types_by_name["StackTrace"] = _STACKTRACE
-DESCRIPTOR.message_types_by_name["Module"] = _MODULE
-DESCRIPTOR.message_types_by_name["TruncatableString"] = _TRUNCATABLESTRING
+_STACKTRACE.fields_by_name['stack_frames'].message_type = _STACKTRACE_STACKFRAMES
+_MODULE.fields_by_name['module'].message_type = _TRUNCATABLESTRING
+_MODULE.fields_by_name['build_id'].message_type = _TRUNCATABLESTRING
+DESCRIPTOR.message_types_by_name['Span'] = _SPAN
+DESCRIPTOR.message_types_by_name['AttributeValue'] = _ATTRIBUTEVALUE
+DESCRIPTOR.message_types_by_name['StackTrace'] = _STACKTRACE
+DESCRIPTOR.message_types_by_name['Module'] = _MODULE
+DESCRIPTOR.message_types_by_name['TruncatableString'] = _TRUNCATABLESTRING
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
-Span = _reflection.GeneratedProtocolMessageType(
-    "Span",
-    (_message.Message,),
-    {
-        "Attributes": _reflection.GeneratedProtocolMessageType(
-            "Attributes",
-            (_message.Message,),
-            {
-                "AttributeMapEntry": _reflection.GeneratedProtocolMessageType(
-                    "AttributeMapEntry",
-                    (_message.Message,),
-                    {
-                        "DESCRIPTOR": _SPAN_ATTRIBUTES_ATTRIBUTEMAPENTRY,
-                        "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2"
-                        # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.Span.Attributes.AttributeMapEntry)
-                    },
-                ),
-                "DESCRIPTOR": _SPAN_ATTRIBUTES,
-                "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
-                "__doc__": """A set of attributes, each in the format ``[KEY]:[VALUE]``.
+Span = _reflection.GeneratedProtocolMessageType('Span', (_message.Message,), {
+
+  'Attributes' : _reflection.GeneratedProtocolMessageType('Attributes', (_message.Message,), {
+
+    'AttributeMapEntry' : _reflection.GeneratedProtocolMessageType('AttributeMapEntry', (_message.Message,), {
+      'DESCRIPTOR' : _SPAN_ATTRIBUTES_ATTRIBUTEMAPENTRY,
+      '__module__' : 'google.cloud.devtools.cloudtrace_v2.proto.trace_pb2'
+      # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.Span.Attributes.AttributeMapEntry)
+      })
+    ,
+    'DESCRIPTOR' : _SPAN_ATTRIBUTES,
+    '__module__' : 'google.cloud.devtools.cloudtrace_v2.proto.trace_pb2'
+    ,
+    '__doc__': """A set of attributes, each in the format ``[KEY]:[VALUE]``.
     
     Attributes:
         attribute_map:
@@ -1607,20 +934,17 @@ Span = _reflection.GeneratedProtocolMessageType(
             are too many attributes. If this value is 0 then all
             attributes are valid.
     """,
-                # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.Span.Attributes)
-            },
-        ),
-        "TimeEvent": _reflection.GeneratedProtocolMessageType(
-            "TimeEvent",
-            (_message.Message,),
-            {
-                "Annotation": _reflection.GeneratedProtocolMessageType(
-                    "Annotation",
-                    (_message.Message,),
-                    {
-                        "DESCRIPTOR": _SPAN_TIMEEVENT_ANNOTATION,
-                        "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
-                        "__doc__": """Text annotation with a set of attributes.
+    # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.Span.Attributes)
+    })
+  ,
+
+  'TimeEvent' : _reflection.GeneratedProtocolMessageType('TimeEvent', (_message.Message,), {
+
+    'Annotation' : _reflection.GeneratedProtocolMessageType('Annotation', (_message.Message,), {
+      'DESCRIPTOR' : _SPAN_TIMEEVENT_ANNOTATION,
+      '__module__' : 'google.cloud.devtools.cloudtrace_v2.proto.trace_pb2'
+      ,
+      '__doc__': """Text annotation with a set of attributes.
       
       Attributes:
           description:
@@ -1630,16 +954,15 @@ Span = _reflection.GeneratedProtocolMessageType(
               A set of attributes on the annotation. You can have up to 4
               attributes per Annotation.
       """,
-                        # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.Span.TimeEvent.Annotation)
-                    },
-                ),
-                "MessageEvent": _reflection.GeneratedProtocolMessageType(
-                    "MessageEvent",
-                    (_message.Message,),
-                    {
-                        "DESCRIPTOR": _SPAN_TIMEEVENT_MESSAGEEVENT,
-                        "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
-                        "__doc__": """An event describing a message sent/received between Spans.
+      # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.Span.TimeEvent.Annotation)
+      })
+    ,
+
+    'MessageEvent' : _reflection.GeneratedProtocolMessageType('MessageEvent', (_message.Message,), {
+      'DESCRIPTOR' : _SPAN_TIMEEVENT_MESSAGEEVENT,
+      '__module__' : 'google.cloud.devtools.cloudtrace_v2.proto.trace_pb2'
+      ,
+      '__doc__': """An event describing a message sent/received between Spans.
       
       Attributes:
           type:
@@ -1655,12 +978,13 @@ Span = _reflection.GeneratedProtocolMessageType(
               The number of compressed bytes sent or received. If missing
               assumed to be the same size as uncompressed.
       """,
-                        # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.Span.TimeEvent.MessageEvent)
-                    },
-                ),
-                "DESCRIPTOR": _SPAN_TIMEEVENT,
-                "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
-                "__doc__": """A time-stamped annotation or message event in the Span.
+      # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.Span.TimeEvent.MessageEvent)
+      })
+    ,
+    'DESCRIPTOR' : _SPAN_TIMEEVENT,
+    '__module__' : 'google.cloud.devtools.cloudtrace_v2.proto.trace_pb2'
+    ,
+    '__doc__': """A time-stamped annotation or message event in the Span.
     
     Attributes:
         time:
@@ -1673,16 +997,15 @@ Span = _reflection.GeneratedProtocolMessageType(
         message_event:
             An event describing a message sent/received between Spans.
     """,
-                # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.Span.TimeEvent)
-            },
-        ),
-        "TimeEvents": _reflection.GeneratedProtocolMessageType(
-            "TimeEvents",
-            (_message.Message,),
-            {
-                "DESCRIPTOR": _SPAN_TIMEEVENTS,
-                "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
-                "__doc__": """A collection of ``TimeEvent``\ s. A ``TimeEvent`` is a time-stamped
+    # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.Span.TimeEvent)
+    })
+  ,
+
+  'TimeEvents' : _reflection.GeneratedProtocolMessageType('TimeEvents', (_message.Message,), {
+    'DESCRIPTOR' : _SPAN_TIMEEVENTS,
+    '__module__' : 'google.cloud.devtools.cloudtrace_v2.proto.trace_pb2'
+    ,
+    '__doc__': """A collection of ``TimeEvent``\ s. A ``TimeEvent`` is a time-stamped
     annotation on the span, consisting of either user-supplied key:value
     pairs, or details of a message sent/received between Spans.
     
@@ -1697,16 +1020,15 @@ Span = _reflection.GeneratedProtocolMessageType(
             events. If the value is 0, then no message events were
             dropped.
     """,
-                # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.Span.TimeEvents)
-            },
-        ),
-        "Link": _reflection.GeneratedProtocolMessageType(
-            "Link",
-            (_message.Message,),
-            {
-                "DESCRIPTOR": _SPAN_LINK,
-                "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
-                "__doc__": """A pointer from the current span to another span in the same trace or
+    # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.Span.TimeEvents)
+    })
+  ,
+
+  'Link' : _reflection.GeneratedProtocolMessageType('Link', (_message.Message,), {
+    'DESCRIPTOR' : _SPAN_LINK,
+    '__module__' : 'google.cloud.devtools.cloudtrace_v2.proto.trace_pb2'
+    ,
+    '__doc__': """A pointer from the current span to another span in the same trace or
     in a different trace. For example, this can be used in batching
     operations, where a single batch handler processes multiple requests
     from different traces or when the handler receives a request from a
@@ -1724,16 +1046,15 @@ Span = _reflection.GeneratedProtocolMessageType(
             A set of attributes on the link. You have have up to 32
             attributes per link.
     """,
-                # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.Span.Link)
-            },
-        ),
-        "Links": _reflection.GeneratedProtocolMessageType(
-            "Links",
-            (_message.Message,),
-            {
-                "DESCRIPTOR": _SPAN_LINKS,
-                "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
-                "__doc__": """A collection of links, which are references from this span to a span
+    # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.Span.Link)
+    })
+  ,
+
+  'Links' : _reflection.GeneratedProtocolMessageType('Links', (_message.Message,), {
+    'DESCRIPTOR' : _SPAN_LINKS,
+    '__module__' : 'google.cloud.devtools.cloudtrace_v2.proto.trace_pb2'
+    ,
+    '__doc__': """A collection of links, which are references from this span to a span
     in the same or different trace.
     
     Attributes:
@@ -1743,12 +1064,13 @@ Span = _reflection.GeneratedProtocolMessageType(
             The number of dropped links after the maximum size was
             enforced. If this value is 0, then no links were dropped.
     """,
-                # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.Span.Links)
-            },
-        ),
-        "DESCRIPTOR": _SPAN,
-        "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
-        "__doc__": """A span represents a single operation within a trace. Spans can be
+    # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.Span.Links)
+    })
+  ,
+  'DESCRIPTOR' : _SPAN,
+  '__module__' : 'google.cloud.devtools.cloudtrace_v2.proto.trace_pb2'
+  ,
+  '__doc__': """A span represents a single operation within a trace. Spans can be
   nested to form a trace tree. Often, a trace contains a root span that
   describes the end-to-end latency, and one or more subspans for its
   sub-operations. A trace can also contain multiple root spans, or none
@@ -1810,9 +1132,8 @@ Span = _reflection.GeneratedProtocolMessageType(
           this span was active. If set, allows implementation to detect
           missing child spans.
   """,
-        # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.Span)
-    },
-)
+  # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.Span)
+  })
 _sym_db.RegisterMessage(Span)
 _sym_db.RegisterMessage(Span.Attributes)
 _sym_db.RegisterMessage(Span.Attributes.AttributeMapEntry)
@@ -1823,13 +1144,11 @@ _sym_db.RegisterMessage(Span.TimeEvents)
 _sym_db.RegisterMessage(Span.Link)
 _sym_db.RegisterMessage(Span.Links)
 
-AttributeValue = _reflection.GeneratedProtocolMessageType(
-    "AttributeValue",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _ATTRIBUTEVALUE,
-        "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
-        "__doc__": """The allowed types for [VALUE] in a ``[KEY]:[VALUE]`` attribute.
+AttributeValue = _reflection.GeneratedProtocolMessageType('AttributeValue', (_message.Message,), {
+  'DESCRIPTOR' : _ATTRIBUTEVALUE,
+  '__module__' : 'google.cloud.devtools.cloudtrace_v2.proto.trace_pb2'
+  ,
+  '__doc__': """The allowed types for [VALUE] in a ``[KEY]:[VALUE]`` attribute.
   
   Attributes:
       value:
@@ -1841,22 +1160,17 @@ AttributeValue = _reflection.GeneratedProtocolMessageType(
       bool_value:
           A Boolean value represented by ``true`` or ``false``.
   """,
-        # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.AttributeValue)
-    },
-)
+  # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.AttributeValue)
+  })
 _sym_db.RegisterMessage(AttributeValue)
 
-StackTrace = _reflection.GeneratedProtocolMessageType(
-    "StackTrace",
-    (_message.Message,),
-    {
-        "StackFrame": _reflection.GeneratedProtocolMessageType(
-            "StackFrame",
-            (_message.Message,),
-            {
-                "DESCRIPTOR": _STACKTRACE_STACKFRAME,
-                "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
-                "__doc__": """Represents a single stack frame in a stack trace.
+StackTrace = _reflection.GeneratedProtocolMessageType('StackTrace', (_message.Message,), {
+
+  'StackFrame' : _reflection.GeneratedProtocolMessageType('StackFrame', (_message.Message,), {
+    'DESCRIPTOR' : _STACKTRACE_STACKFRAME,
+    '__module__' : 'google.cloud.devtools.cloudtrace_v2.proto.trace_pb2'
+    ,
+    '__doc__': """Represents a single stack frame in a stack trace.
     
     Attributes:
         function_name:
@@ -1881,16 +1195,15 @@ StackTrace = _reflection.GeneratedProtocolMessageType(
         source_version:
             The version of the deployed source code (up to 128 bytes).
     """,
-                # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.StackTrace.StackFrame)
-            },
-        ),
-        "StackFrames": _reflection.GeneratedProtocolMessageType(
-            "StackFrames",
-            (_message.Message,),
-            {
-                "DESCRIPTOR": _STACKTRACE_STACKFRAMES,
-                "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
-                "__doc__": """A collection of stack frames, which can be truncated.
+    # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.StackTrace.StackFrame)
+    })
+  ,
+
+  'StackFrames' : _reflection.GeneratedProtocolMessageType('StackFrames', (_message.Message,), {
+    'DESCRIPTOR' : _STACKTRACE_STACKFRAMES,
+    '__module__' : 'google.cloud.devtools.cloudtrace_v2.proto.trace_pb2'
+    ,
+    '__doc__': """A collection of stack frames, which can be truncated.
     
     Attributes:
         frame:
@@ -1900,12 +1213,13 @@ StackTrace = _reflection.GeneratedProtocolMessageType(
             were too many stack frames. If this value is 0, then no stack
             frames were dropped.
     """,
-                # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.StackTrace.StackFrames)
-            },
-        ),
-        "DESCRIPTOR": _STACKTRACE,
-        "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
-        "__doc__": """A call stack appearing in a trace.
+    # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.StackTrace.StackFrames)
+    })
+  ,
+  'DESCRIPTOR' : _STACKTRACE,
+  '__module__' : 'google.cloud.devtools.cloudtrace_v2.proto.trace_pb2'
+  ,
+  '__doc__': """A call stack appearing in a trace.
   
   Attributes:
       stack_frames:
@@ -1920,20 +1234,17 @@ StackTrace = _reflection.GeneratedProtocolMessageType(
           within the same request can refer to that stack trace by only
           setting ``stackTraceHashId``.
   """,
-        # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.StackTrace)
-    },
-)
+  # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.StackTrace)
+  })
 _sym_db.RegisterMessage(StackTrace)
 _sym_db.RegisterMessage(StackTrace.StackFrame)
 _sym_db.RegisterMessage(StackTrace.StackFrames)
 
-Module = _reflection.GeneratedProtocolMessageType(
-    "Module",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _MODULE,
-        "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
-        "__doc__": """Binary module.
+Module = _reflection.GeneratedProtocolMessageType('Module', (_message.Message,), {
+  'DESCRIPTOR' : _MODULE,
+  '__module__' : 'google.cloud.devtools.cloudtrace_v2.proto.trace_pb2'
+  ,
+  '__doc__': """Binary module.
   
   Attributes:
       module:
@@ -1943,18 +1254,15 @@ Module = _reflection.GeneratedProtocolMessageType(
           A unique identifier for the module, usually a hash of its
           contents (up to 128 bytes).
   """,
-        # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.Module)
-    },
-)
+  # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.Module)
+  })
 _sym_db.RegisterMessage(Module)
 
-TruncatableString = _reflection.GeneratedProtocolMessageType(
-    "TruncatableString",
-    (_message.Message,),
-    {
-        "DESCRIPTOR": _TRUNCATABLESTRING,
-        "__module__": "google.cloud.devtools.cloudtrace_v2.proto.trace_pb2",
-        "__doc__": """Represents a string that might be shortened to a specified length.
+TruncatableString = _reflection.GeneratedProtocolMessageType('TruncatableString', (_message.Message,), {
+  'DESCRIPTOR' : _TRUNCATABLESTRING,
+  '__module__' : 'google.cloud.devtools.cloudtrace_v2.proto.trace_pb2'
+  ,
+  '__doc__': """Represents a string that might be shortened to a specified length.
   
   Attributes:
       value:
@@ -1968,21 +1276,20 @@ TruncatableString = _reflection.GeneratedProtocolMessageType(
           The number of bytes removed from the original string. If this
           value is 0, then the string was not shortened.
   """,
-        # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.TruncatableString)
-    },
-)
+  # @@protoc_insertion_point(class_scope:google.devtools.cloudtrace.v2.TruncatableString)
+  })
 _sym_db.RegisterMessage(TruncatableString)
 
 
 DESCRIPTOR._options = None
 _SPAN_ATTRIBUTES_ATTRIBUTEMAPENTRY._options = None
-_SPAN.fields_by_name["name"]._options = None
-_SPAN.fields_by_name["span_id"]._options = None
-_SPAN.fields_by_name["display_name"]._options = None
-_SPAN.fields_by_name["start_time"]._options = None
-_SPAN.fields_by_name["end_time"]._options = None
-_SPAN.fields_by_name["status"]._options = None
-_SPAN.fields_by_name["same_process_as_parent_span"]._options = None
-_SPAN.fields_by_name["child_span_count"]._options = None
+_SPAN.fields_by_name['name']._options = None
+_SPAN.fields_by_name['span_id']._options = None
+_SPAN.fields_by_name['display_name']._options = None
+_SPAN.fields_by_name['start_time']._options = None
+_SPAN.fields_by_name['end_time']._options = None
+_SPAN.fields_by_name['status']._options = None
+_SPAN.fields_by_name['same_process_as_parent_span']._options = None
+_SPAN.fields_by_name['child_span_count']._options = None
 _SPAN._options = None
 # @@protoc_insertion_point(module_scope)

@@ -2,12 +2,8 @@
 """Client and server classes corresponding to protobuf-defined services."""
 import grpc
 
-from google.cloud.trace_v2.proto import (
-    trace_pb2 as google_dot_cloud_dot_devtools_dot_cloudtrace__v2_dot_proto_dot_trace__pb2,
-)
-from google.cloud.trace_v2.proto import (
-    tracing_pb2 as google_dot_cloud_dot_devtools_dot_cloudtrace__v2_dot_proto_dot_tracing__pb2,
-)
+from google.cloud.trace_v2.proto import trace_pb2 as google_dot_cloud_dot_devtools_dot_cloudtrace__v2_dot_proto_dot_trace__pb2
+from google.cloud.trace_v2.proto import tracing_pb2 as google_dot_cloud_dot_devtools_dot_cloudtrace__v2_dot_proto_dot_tracing__pb2
 from google.protobuf import empty_pb2 as google_dot_protobuf_dot_empty__pb2
 
 
@@ -26,15 +22,15 @@ class TraceServiceStub(object):
             channel: A grpc.Channel.
         """
         self.BatchWriteSpans = channel.unary_unary(
-            "/google.devtools.cloudtrace.v2.TraceService/BatchWriteSpans",
-            request_serializer=google_dot_cloud_dot_devtools_dot_cloudtrace__v2_dot_proto_dot_tracing__pb2.BatchWriteSpansRequest.SerializeToString,
-            response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-        )
+                '/google.devtools.cloudtrace.v2.TraceService/BatchWriteSpans',
+                request_serializer=google_dot_cloud_dot_devtools_dot_cloudtrace__v2_dot_proto_dot_tracing__pb2.BatchWriteSpansRequest.SerializeToString,
+                response_deserializer=google_dot_protobuf_dot_empty__pb2.Empty.FromString,
+                )
         self.CreateSpan = channel.unary_unary(
-            "/google.devtools.cloudtrace.v2.TraceService/CreateSpan",
-            request_serializer=google_dot_cloud_dot_devtools_dot_cloudtrace__v2_dot_proto_dot_trace__pb2.Span.SerializeToString,
-            response_deserializer=google_dot_cloud_dot_devtools_dot_cloudtrace__v2_dot_proto_dot_trace__pb2.Span.FromString,
-        )
+                '/google.devtools.cloudtrace.v2.TraceService/CreateSpan',
+                request_serializer=google_dot_cloud_dot_devtools_dot_cloudtrace__v2_dot_proto_dot_trace__pb2.Span.SerializeToString,
+                response_deserializer=google_dot_cloud_dot_devtools_dot_cloudtrace__v2_dot_proto_dot_trace__pb2.Span.FromString,
+                )
 
 
 class TraceServiceServicer(object):
@@ -50,37 +46,36 @@ class TraceServiceServicer(object):
         existing spans.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
     def CreateSpan(self, request, context):
         """Creates a new span.
         """
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
-        context.set_details("Method not implemented!")
-        raise NotImplementedError("Method not implemented!")
+        context.set_details('Method not implemented!')
+        raise NotImplementedError('Method not implemented!')
 
 
 def add_TraceServiceServicer_to_server(servicer, server):
     rpc_method_handlers = {
-        "BatchWriteSpans": grpc.unary_unary_rpc_method_handler(
-            servicer.BatchWriteSpans,
-            request_deserializer=google_dot_cloud_dot_devtools_dot_cloudtrace__v2_dot_proto_dot_tracing__pb2.BatchWriteSpansRequest.FromString,
-            response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
-        ),
-        "CreateSpan": grpc.unary_unary_rpc_method_handler(
-            servicer.CreateSpan,
-            request_deserializer=google_dot_cloud_dot_devtools_dot_cloudtrace__v2_dot_proto_dot_trace__pb2.Span.FromString,
-            response_serializer=google_dot_cloud_dot_devtools_dot_cloudtrace__v2_dot_proto_dot_trace__pb2.Span.SerializeToString,
-        ),
+            'BatchWriteSpans': grpc.unary_unary_rpc_method_handler(
+                    servicer.BatchWriteSpans,
+                    request_deserializer=google_dot_cloud_dot_devtools_dot_cloudtrace__v2_dot_proto_dot_tracing__pb2.BatchWriteSpansRequest.FromString,
+                    response_serializer=google_dot_protobuf_dot_empty__pb2.Empty.SerializeToString,
+            ),
+            'CreateSpan': grpc.unary_unary_rpc_method_handler(
+                    servicer.CreateSpan,
+                    request_deserializer=google_dot_cloud_dot_devtools_dot_cloudtrace__v2_dot_proto_dot_trace__pb2.Span.FromString,
+                    response_serializer=google_dot_cloud_dot_devtools_dot_cloudtrace__v2_dot_proto_dot_trace__pb2.Span.SerializeToString,
+            ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-        "google.devtools.cloudtrace.v2.TraceService", rpc_method_handlers
-    )
+            'google.devtools.cloudtrace.v2.TraceService', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
 
 
-# This class is part of an EXPERIMENTAL API.
+ # This class is part of an EXPERIMENTAL API.
 class TraceService(object):
     """This file describes an API for collecting and viewing traces and spans
     within a trace.  A Trace is a collection of spans corresponding to a single
@@ -90,55 +85,33 @@ class TraceService(object):
     """
 
     @staticmethod
-    def BatchWriteSpans(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def BatchWriteSpans(request,
             target,
-            "/google.devtools.cloudtrace.v2.TraceService/BatchWriteSpans",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/google.devtools.cloudtrace.v2.TraceService/BatchWriteSpans',
             google_dot_cloud_dot_devtools_dot_cloudtrace__v2_dot_proto_dot_tracing__pb2.BatchWriteSpansRequest.SerializeToString,
             google_dot_protobuf_dot_empty__pb2.Empty.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
 
     @staticmethod
-    def CreateSpan(
-        request,
-        target,
-        options=(),
-        channel_credentials=None,
-        call_credentials=None,
-        compression=None,
-        wait_for_ready=None,
-        timeout=None,
-        metadata=None,
-    ):
-        return grpc.experimental.unary_unary(
-            request,
+    def CreateSpan(request,
             target,
-            "/google.devtools.cloudtrace.v2.TraceService/CreateSpan",
+            options=(),
+            channel_credentials=None,
+            call_credentials=None,
+            compression=None,
+            wait_for_ready=None,
+            timeout=None,
+            metadata=None):
+        return grpc.experimental.unary_unary(request, target, '/google.devtools.cloudtrace.v2.TraceService/CreateSpan',
             google_dot_cloud_dot_devtools_dot_cloudtrace__v2_dot_proto_dot_trace__pb2.Span.SerializeToString,
             google_dot_cloud_dot_devtools_dot_cloudtrace__v2_dot_proto_dot_trace__pb2.Span.FromString,
-            options,
-            channel_credentials,
-            call_credentials,
-            compression,
-            wait_for_ready,
-            timeout,
-            metadata,
-        )
+            options, channel_credentials,
+            call_credentials, compression, wait_for_ready, timeout, metadata)
