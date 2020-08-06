@@ -4,7 +4,7 @@
       "git": {
         "name": ".",
         "remote": "https://github.com/googleapis/python-trace.git",
-        "sha": "0c495946742b8fae11022fb3545ae54ee4a4c3a1"
+        "sha": "a4fa87054a34c1dc4e9a69f3a96762ece9cec306"
       }
     },
     {
@@ -19,7 +19,7 @@
       "git": {
         "name": "synthtool",
         "remote": "https://github.com/googleapis/synthtool.git",
-        "sha": "bfcdbe0da977b2de6c1c0471bb6dc2f1e13bf669"
+        "sha": "4f8f5dc24af79694887385015294e4dbb214c352"
       }
     }
   ],
