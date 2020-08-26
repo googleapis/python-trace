@@ -47,7 +47,9 @@ def test_list_traces_w_outside(client):
 @vpcsc_config.skip_unless_inside_vpcsc
 def test_get_trace_w_inside(client):
     with pytest.raises(exceptions.InvalidArgument):
-        client.get_trace(project_id=vpcsc_config.project_inside, trace_id="")  # no perms issue
+        client.get_trace(
+            project_id=vpcsc_config.project_inside, trace_id=""
+        )  # no perms issue
 
 
 @vpcsc_config.skip_unless_inside_vpcsc
@@ -61,7 +63,9 @@ def test_get_trace_w_outside(client):
 @vpcsc_config.skip_unless_inside_vpcsc
 def test_patch_traces_w_inside(client):
     with pytest.raises(exceptions.InvalidArgument):
-        client.patch_traces(project_id=vpcsc_config.project_inside, traces={})  # no perms issue
+        client.patch_traces(
+            project_id=vpcsc_config.project_inside, traces={}
+        )  # no perms issue
 
 
 @vpcsc_config.skip_unless_inside_vpcsc
