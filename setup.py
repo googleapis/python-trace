@@ -74,6 +74,7 @@ setuptools.setup(
         "Programming Language :: Python",
         "Programming Language :: Python :: 3.6",
         "Programming Language :: Python :: 3.7",
+        "Programming Language :: Python :: 3.8",
         "Operating System :: OS Independent",
         "Topic :: Internet",
     ],
@@ -82,7 +83,7 @@ setuptools.setup(
     namespace_packages=namespaces,
     install_requires=dependencies,
     extras_require=extras,
-    python_requires=">=3.6*",
+    python_requires=">=3.6",
     scripts=[
         "scripts/fixup_trace_v1_keywords.py",
         "scripts/fixup_trace_v2_keywords.py",
