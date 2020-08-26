@@ -1,6 +1,6 @@
-# 2.0.0 Migration Guide
+# 1.0.0 Migration Guide
 
-The 2.0 release of the `google-cloud-trace` client is a significant upgrade based on a [next-gen code generator](https://github.com/googleapis/gapic-generator-python), and includes substantial interface changes. Existing code written for earlier versions of this library will likely require updates to use this version. This document describes the changes that have been made, and what you need to do to update your usage.
+The 1.0 release of the `google-cloud-trace` client is a significant upgrade based on a [next-gen code generator](https://github.com/googleapis/gapic-generator-python), and includes substantial interface changes. Existing code written for earlier versions of this library will likely require updates to use this version. This document describes the changes that have been made, and what you need to do to update your usage.
 
 If you experience issues or have questions, please file an [issue](https://github.com/googleapis/python-trace/issues).
 
@@ -8,12 +8,12 @@ If you experience issues or have questions, please file an [issue](https://githu
 
 > **WARNING**: Breaking change
 
-The 2.0.0 release requires Python 3.6+.
+The 1.0.0 release requires Python 3.6+.
 
 
-## Client Naming
+## Handwritten Client Wrapper Removal
 
-The `trace_v1.Client()` and `trace_v2.Client()` have been renamed to `TraceServiceClient`.
+The handwritten client wrapper `trace_v1.Client()` and `trace_v2.Client()` have been removed. Please use `TraceServiceClient` directly. The primary diference is that a `project_id` must always be supplied to method calls.
 
 
 ```py
@@ -28,11 +28,11 @@ from google.cloud import trace_v2
 client = trace_v2.TraceServiceClient()
 ```
 
+**NOTE**: The following sections identify changes between the previous `TraceServiceClient()` and the current `TraceServiceClient()` (not the handwritten wrapper `Client()`). If you were previously using `Client()`, it may be more helpful to reference the [samples](https://github.com/googleapis/python-trace/tree/master/samples/snippets).
 
 ## Method Calls
 
 > **WARNING**: Breaking change
-
 Methods expect request objects. We provide a script that will convert most common use cases.
 
 * Install the library
@@ -53,25 +53,18 @@ $ fixup_trace_v1_keywords.py --input-directory .samples/ --output-directory samp
 from google.cloud import trace_v1
 
 client = trace_v1.TraceServiceClient()
-
-name = client.span_path('[PROJECT]', '[TRACE_ID]', '[SPAN_ID]')
-span_id = '[SPAN_ID]'
-display_name = {}
-start_time = {}
-end_time = {}
-
-response = client.create_span(name, span_id, display_name,
-                                    start_time, end_time)
+project_id = "my-project"
+response = client.list_traces(project_id)
 ```
 
 
 **After:**
 ```py
-from google.cloud import texttospeech
+from google.cloud import trace_v1
 
-client = texttospeech.TextToSpeechClient()
-
-voices = client.list_voices(request={"language_code": "no"})
+client = trace_v1.TraceServiceClient()
+project_id = "my-project"
+response = client.list_traces(project_id=project_id)
 ```
 
 ### More Details
@@ -80,11 +73,10 @@ In `google-cloud-trace<2.0.0`, parameters required by the API were positional pa
 
 **Before:**
 ```py
-    def synthesize_speech(
+    def get_trace(
         self,
-        input_,
-        voice,
-        audio_config,
+        project_id,
+        trace_id,
         retry=google.api_core.gapic_v1.method.DEFAULT,
         timeout=google.api_core.gapic_v1.method.DEFAULT,
         metadata=None,
@@ -93,22 +85,21 @@ In `google-cloud-trace<2.0.0`, parameters required by the API were positional pa
 
 In the 2.0.0 release, all methods have a single positional parameter `request`. Method docstrings indicate whether a parameter is required or optional.
 
-Some methods have additional keyword only parameters. The available parameters depend on the [`google.api.method_signature` annotation](https://github.com/googleapis/googleapis/blob/master/google/cloud/texttospeech/v1/cloud_tts.proto#L53) specified by the API producer.
+Some methods have additional keyword only parameters. The available parameters depend on the [`google.api.method_signature` annotation](https://github.com/googleapis/googleapis/blob/master/google/devtools/cloudtrace/v2/tracing.proto#L53) specified by the API producer.
 
 
 **After:**
 ```py
-    def synthesize_speech(
+    def get_trace(
         self,
-        request: cloud_tts.SynthesizeSpeechRequest = None,
+        request: trace.GetTraceRequest = None,
         *,
-        input: cloud_tts.SynthesisInput = None,
-        voice: cloud_tts.VoiceSelectionParams = None,
-        audio_config: cloud_tts.AudioConfig = None,
+        project_id: str = None,
+        trace_id: str = None,
         retry: retries.Retry = gapic_v1.method.DEFAULT,
         timeout: float = None,
         metadata: Sequence[Tuple[str, str]] = (),
-    ) -> cloud_tts.SynthesizeSpeechResponse:
+    ) -> trace.Trace:
 ```
 
 > **NOTE:** The `request` parameter and flattened keyword parameters for the API are mutually exclusive.
@@ -118,33 +109,30 @@ Some methods have additional keyword only parameters. The available parameters d
 Both of these calls are valid:
 
 ```py
-response = client.synthesize_speech(
+response = client.get_trace(
     request={
-        "input": input_text,
-        "voice": voice,
-        "audio_config": audio_config
+        "project_id": project_id,
+        "trace_id", trace_id,
     }
 )
 ```
 
 ```py
-response = client.synthesize_speech(
-    input=input_text,
-    voice=voice,
-    audio_config=audio_config
+response = client.get_trace(
+    project_id=project_id,
+    trace_id=trace_id,
 )
 ```
 
-This call is invalid because it mixes `request` with a keyword argument `audio_config`. Executing this code
+This call is invalid because it mixes `request` with a keyword argument `trace_id`. Executing this code
 will result in an error.
 
 ```py
-response = client.synthesize_speech(
+response = client.get_trace(
     request={
-        "input": input_text,
-        "voice": voice,
+        "project_id": project_id,
     },
-    audio_config=audio_config
+    trace_id=trace_id,
 )
 ```
 
@@ -153,24 +141,22 @@ response = client.synthesize_speech(
 ## Enums and Types
 
 
-> **WARNING**: Breaking change
+**WARNING**: Breaking change
 
-The submodules `enums` and `types` have been removed.
+The submodules `types` is no longer available on the unversioned path `trace`.
 
 **Before:**
 ```py
+from google.cloud import trace
 
-from google.cloud import texttospeech
-
-encoding = texttospeech.enums.AudioEncoding.MP3
-voice = texttospeech.types.VoiceSelectionParams(language_code="en-US")
+trace_ = trace.types.TraceSpan()
 ```
 
 
 **After:**
 ```py
-from google.cloud import texttospeech
+from google.cloud
 
-encoding = texttospeech.AudioEncoding.MP3
-voice = texttospeech.VoiceSelectionParams(language_code="en-US")
+trace_ = trace_v1.TraceSpan()
+trace_ = trace_v1.types.TraceSpan()
 ```
