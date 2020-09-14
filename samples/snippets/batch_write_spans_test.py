@@ -14,12 +14,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import datetime
 import os
-import uuid
-
-import pytest
-from google.cloud import trace_v2
 
 import batch_write_spans
 

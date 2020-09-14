@@ -15,6 +15,7 @@
 # limitations under the License.
 
 import uuid
+
 from google.cloud import trace_v1
 
 

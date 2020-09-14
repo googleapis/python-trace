@@ -16,8 +16,8 @@
 
 import os
 
-import pytest
 from google.cloud import trace_v1
+import pytest
 
 import patch_traces
 
@@ -34,4 +34,4 @@ def trace_id():
 
 
 def test_patch_traces():
-    trace = patch_traces.patch_traces(project_id=PROJECT_ID)
+    patch_traces.patch_traces(project_id=PROJECT_ID)

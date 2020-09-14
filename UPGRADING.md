@@ -69,7 +69,7 @@ response = client.list_traces(project_id=project_id)
 
 ### More Details
 
-In `google-cloud-trace<2.0.0`, parameters required by the API were positional parameters and optional parameters were keyword parameters.
+In `google-cloud-trace<1.0.0`, parameters required by the API were positional parameters and optional parameters were keyword parameters.
 
 **Before:**
 ```py
@@ -83,7 +83,7 @@ In `google-cloud-trace<2.0.0`, parameters required by the API were positional pa
     ):
 ```
 
-In the 2.0.0 release, all methods have a single positional parameter `request`. Method docstrings indicate whether a parameter is required or optional.
+In the 1.0.0 release, all methods have a single positional parameter `request`. Method docstrings indicate whether a parameter is required or optional.
 
 Some methods have additional keyword only parameters. The available parameters depend on the [`google.api.method_signature` annotation](https://github.com/googleapis/googleapis/blob/master/google/devtools/cloudtrace/v2/tracing.proto#L53) specified by the API producer.
 

@@ -16,8 +16,6 @@
 
 import os
 
-import pytest
-
 import list_traces
 
 PROJECT_ID = os.environ["GOOGLE_CLOUD_PROJECT"]

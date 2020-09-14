@@ -18,9 +18,6 @@ import datetime
 import os
 import uuid
 
-import pytest
-from google.cloud import trace_v2
-
 import create_span
 
 PROJECT_ID = os.environ["GOOGLE_CLOUD_PROJECT"]

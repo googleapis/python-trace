@@ -16,8 +16,8 @@
 
 import os
 
-import pytest
 from google.cloud import trace_v1
+import pytest
 
 import get_trace
 
@@ -34,4 +34,4 @@ def trace_id():
 
 
 def test_get_trace(trace_id):
-    trace = get_trace.get_trace(project_id=PROJECT_ID, trace_id=trace_id)
+    get_trace.get_trace(project_id=PROJECT_ID, trace_id=trace_id)
