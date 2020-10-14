@@ -1,4 +1,6 @@
-# Copyright 2018 Google LLC
+# -*- coding: utf-8 -*-
+#
+# Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,6 +18,9 @@ import os
 import time
 
 from google.cloud import trace_v2
+from google.cloud.trace_v2.proto import trace_pb2
+from google.cloud.trace_v2.proto import tracing_pb2
+from google.protobuf import empty_pb2
 
 
 class TestSystemTraceService(object):
@@ -23,6 +28,8 @@ class TestSystemTraceService(object):
         project_id = os.environ["PROJECT_ID"]
 
         client = trace_v2.TraceServiceClient()
-        name = f"projects/{project_id}"
+        name = client.project_path(project_id)
+
+        # TODO: Initialize `spans`:
         spans = []
-        client.batch_write_spans(name=name, spans=spans)
+        client.batch_write_spans(name, spans)

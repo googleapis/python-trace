@@ -14,19 +14,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
-import time
+try:
+    import pkg_resources
 
-from google.cloud import trace_v1
-from google.cloud.trace_v1 import enums
-from google.cloud.trace_v1.proto import trace_pb2
-from google.protobuf import timestamp_pb2
+    pkg_resources.declare_namespace(__name__)
+except ImportError:
+    import pkgutil
 
-
-class TestSystemTraceService(object):
-    def test_list_traces(self):
-        project_id = os.environ["PROJECT_ID"]
-
-        client = trace_v1.TraceServiceClient()
-        project_id_2 = project_id
-        response = client.list_traces(project_id_2)
+    __path__ = pkgutil.extend_path(__path__, __name__)
