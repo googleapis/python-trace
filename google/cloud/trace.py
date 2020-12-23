@@ -16,26 +16,10 @@
 
 
 from __future__ import absolute_import
-import sys
-import warnings
 
-from google.cloud.trace_v1 import types
-from google.cloud.trace_v1.gapic import enums
-from google.cloud.trace_v1.gapic import trace_service_client
-
-
-if sys.version_info[:2] == (2, 7):
-    message = (
-        "A future version of this library will drop support for Python 2.7. "
-        "More details about Python 2 support for Google Cloud Client Libraries "
-        "can be found at https://cloud.google.com/python/docs/python2-sunset/"
-    )
-    warnings.warn(message, DeprecationWarning)
-
-
-class TraceServiceClient(trace_service_client.TraceServiceClient):
-    __doc__ = trace_service_client.TraceServiceClient.__doc__
-    enums = enums
+from google.cloud.trace_v2 import TraceServiceClient
+from google.cloud.trace_v2 import enums
+from google.cloud.trace_v2 import types
 
 
 __all__ = (
