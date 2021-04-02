@@ -1,4 +1,4 @@
-Python Client for Google Devtools Cloudtrace API
+Python Client for Google Cloud Trace API
 =================================================
 
 Quick Start
@@ -8,7 +8,7 @@ In order to use this library, you first need to go through the following steps:
 
 1. `Select or create a Cloud Platform project.`_
 2. `Enable billing for your project.`_
-3. Enable the Google Devtools Cloudtrace API.
+3. Enable the Google Cloud Trace API.
 4. `Setup Authentication.`_
 
 .. _Select or create a Cloud Platform project.: https://console.cloud.google.com/project
