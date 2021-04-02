@@ -36,6 +36,13 @@ for version in ["v1", "v2"]:
     s.move(library, excludes=["docs/index.rst", "setup.py"])
 
 
+# Rename field `type_` to `type` in v1 and v2 to avoid breaking change
+s.replace(
+    "google/**/types/*.py",
+    "type_",
+    "type"
+)
+
 # ----------------------------------------------------------------------------
 # Add templated files
 # ----------------------------------------------------------------------------

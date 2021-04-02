@@ -194,7 +194,7 @@ class Span(proto.Message):
             r"""An event describing a message sent/received between Spans.
 
             Attributes:
-                type_ (google.cloud.trace_v2.types.Span.TimeEvent.MessageEvent.Type):
+                type (google.cloud.trace_v2.types.Span.TimeEvent.MessageEvent.Type):
                     Type of MessageEvent. Indicates whether the
                     message was sent or received.
                 id (int):
@@ -217,7 +217,7 @@ class Span(proto.Message):
                 SENT = 1
                 RECEIVED = 2
 
-            type_ = proto.Field(
+            type = proto.Field(
                 proto.ENUM, number=1, enum="Span.TimeEvent.MessageEvent.Type",
             )
 
@@ -278,7 +278,7 @@ class Span(proto.Message):
                 The [TRACE_ID] for a trace within a project.
             span_id (str):
                 The [SPAN_ID] for a span within a trace.
-            type_ (google.cloud.trace_v2.types.Span.Link.Type):
+            type (google.cloud.trace_v2.types.Span.Link.Type):
                 The relationship of the current span relative
                 to the linked span.
             attributes (google.cloud.trace_v2.types.Span.Attributes):
@@ -298,7 +298,7 @@ class Span(proto.Message):
 
         span_id = proto.Field(proto.STRING, number=2)
 
-        type_ = proto.Field(proto.ENUM, number=3, enum="Span.Link.Type",)
+        type = proto.Field(proto.ENUM, number=3, enum="Span.Link.Type",)
 
         attributes = proto.Field(proto.MESSAGE, number=4, message="Span.Attributes",)
 
