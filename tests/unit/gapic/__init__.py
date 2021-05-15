@@ -13,26 +13,3 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
-from .services.trace_service import TraceServiceClient
-from .services.trace_service import TraceServiceAsyncClient
-
-from .types.trace import GetTraceRequest
-from .types.trace import ListTracesRequest
-from .types.trace import ListTracesResponse
-from .types.trace import PatchTracesRequest
-from .types.trace import Trace
-from .types.trace import Traces
-from .types.trace import TraceSpan
-
-__all__ = (
-    'TraceServiceAsyncClient',
-'GetTraceRequest',
-'ListTracesRequest',
-'ListTracesResponse',
-'PatchTracesRequest',
-'Trace',
-'TraceServiceClient',
-'TraceSpan',
-'Traces',
-)
