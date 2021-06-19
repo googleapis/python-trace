@@ -4,6 +4,13 @@
 
 [1]: https://pypi.org/project/google-cloud-trace/#history
 
+### [1.2.1](https://www.github.com/googleapis/python-trace/compare/v1.2.0...v1.2.1) (2021-06-19)
+
+
+### Documentation
+
+* omit mention of Python 2.7 in 'CONTRIBUTING.rst' ([#1127](https://www.github.com/googleapis/python-trace/issues/1127)) ([#91](https://www.github.com/googleapis/python-trace/issues/91)) ([5dcc16c](https://www.github.com/googleapis/python-trace/commit/5dcc16ca802dc2a8895389fabecd82e4ec739e54))
+
 ## [1.2.0](https://www.github.com/googleapis/python-trace/compare/v1.1.0...v1.2.0) (2021-05-27)
 
 
