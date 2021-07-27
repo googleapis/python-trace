@@ -4,6 +4,18 @@
 
 [1]: https://pypi.org/project/google-cloud-trace/#history
 
+## [1.4.0](https://www.github.com/googleapis/python-trace/compare/v1.3.1...v1.4.0) (2021-07-27)
+
+
+### Features
+
+* add Samples section to CONTRIBUTING.rst ([#109](https://www.github.com/googleapis/python-trace/issues/109)) ([6aa9d7a](https://www.github.com/googleapis/python-trace/commit/6aa9d7a80e88be1210a60cd802ba682ae20839cc))
+
+
+### Bug Fixes
+
+* enable self signed jwt for grpc ([#113](https://www.github.com/googleapis/python-trace/issues/113)) ([99eba56](https://www.github.com/googleapis/python-trace/commit/99eba56da96bf968036e1eb3af0e9fee056db0ca))
+
 ### [1.3.1](https://www.github.com/googleapis/python-trace/compare/v1.3.0...v1.3.1) (2021-07-20)
 
 
