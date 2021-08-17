@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+datetime.datetime.now(tz=datetime.timezone.utc)datetime.datetime.now(tz=datetime.timezone.utc)# -*- coding: utf-8 -*-
 
 # Copyright 2020 Google LLC
 #
@@ -26,7 +26,7 @@ PROJECT_ID = os.environ["GOOGLE_CLOUD_PROJECT"]
 def test_get_trace():
     trace_id = str(uuid.uuid4()).replace("-", "")
     span_id = str(uuid.uuid4()).replace("-", "")[:16]
-    end_time = datetime.datetime.now()
+    end_time = datetime.datetime.now(tz=datetime.timezone.utc)
     start_time = end_time - datetime.timedelta(seconds=5)
 
     span = create_span.create_span(
