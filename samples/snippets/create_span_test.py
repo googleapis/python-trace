@@ -1,4 +1,4 @@
-datetime.datetime.now(tz=datetime.timezone.utc)datetime.datetime.now(tz=datetime.timezone.utc)# -*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 # Copyright 2020 Google LLC
 #
