@@ -18,23 +18,21 @@ from synthtool.languages import python
 import synthtool as s
 import synthtool.gcp as gcp
 
-gapic = gcp.GAPICBazel()
 common = gcp.CommonTemplates()
 
-# ----------------------------------------------------------------------------
-# Generate trace GAPIC layer
-# ----------------------------------------------------------------------------
-for version in ["v1", "v2"]:
-    library = gapic.py_library(
-        service="trace",
-        version=version,
-        bazel_target=f"//google/devtools/cloudtrace/{version}:devtools-cloudtrace-{version}-py",
-        proto_output_path=f"google/cloud/trace_{version}/proto",
-        include_protos=True,
+default_version = "v2"
+
+for library in s.get_staging_dirs(default_version):
+    # Rename field `type_` to `type` in v1 and v2 to avoid breaking change
+    s.replace(
+        library / "google/**/types/*.py",
+        "type_",
+        "type"
     )
 
     s.move(library, excludes=["docs/index.rst", "setup.py"])
 
+s.remove_staging_dirs()
 
 # ----------------------------------------------------------------------------
 # Add templated files
@@ -42,6 +40,7 @@ for version in ["v1", "v2"]:
 templated_files = common.py_library(
     samples=True,  # set to True only if there are samples
     microgenerator=True,
+    cov_level=98,
 )
 
 python.py_samples(skip_readmes=True)

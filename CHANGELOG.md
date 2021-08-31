@@ -4,6 +4,63 @@
 
 [1]: https://pypi.org/project/google-cloud-trace/#history
 
+### [1.3.2](https://www.github.com/googleapis/python-trace/compare/v1.3.1...v1.3.2) (2021-07-28)
+
+
+### Bug Fixes
+
+* enable self signed jwt for grpc ([#113](https://www.github.com/googleapis/python-trace/issues/113)) ([99eba56](https://www.github.com/googleapis/python-trace/commit/99eba56da96bf968036e1eb3af0e9fee056db0ca))
+
+
+### Documentation
+
+* add Samples section to CONTRIBUTING.rst ([#109](https://www.github.com/googleapis/python-trace/issues/109)) ([6aa9d7a](https://www.github.com/googleapis/python-trace/commit/6aa9d7a80e88be1210a60cd802ba682ae20839cc))
+
+
+### Miscellaneous Chores
+
+* release as 1.3.2 ([#114](https://www.github.com/googleapis/python-trace/issues/114)) ([57d63cd](https://www.github.com/googleapis/python-trace/commit/57d63cdb6b6e2eae77d4bda07749546c1ab65611))
+
+### [1.3.1](https://www.github.com/googleapis/python-trace/compare/v1.3.0...v1.3.1) (2021-07-20)
+
+
+### Bug Fixes
+
+* **deps:** pin 'google-{api,cloud}-core', 'google-auth' to allow 2.x versions ([#108](https://www.github.com/googleapis/python-trace/issues/108)) ([63a9999](https://www.github.com/googleapis/python-trace/commit/63a9999ee62a956c3df5516bccaa942e53f999db))
+
+## [1.3.0](https://www.github.com/googleapis/python-trace/compare/v1.2.0...v1.3.0) (2021-07-01)
+
+
+### Features
+
+* add always_use_jwt_access ([#96](https://www.github.com/googleapis/python-trace/issues/96)) ([e88837d](https://www.github.com/googleapis/python-trace/commit/e88837d7bc7ac180f87f4a5bb8a4cbd71f6e3449))
+
+
+### Bug Fixes
+
+* disable always_use_jwt_access ([#100](https://www.github.com/googleapis/python-trace/issues/100)) ([110f692](https://www.github.com/googleapis/python-trace/commit/110f692dace7b321d92033b1ccc1330deb859395))
+
+
+### Documentation
+
+* omit mention of Python 2.7 in 'CONTRIBUTING.rst' ([#1127](https://www.github.com/googleapis/python-trace/issues/1127)) ([#91](https://www.github.com/googleapis/python-trace/issues/91)) ([5dcc16c](https://www.github.com/googleapis/python-trace/commit/5dcc16ca802dc2a8895389fabecd82e4ec739e54))
+
+## [1.2.0](https://www.github.com/googleapis/python-trace/compare/v1.1.0...v1.2.0) (2021-05-27)
+
+
+### Features
+
+* add `from_service_account_info` ([e097a64](https://www.github.com/googleapis/python-trace/commit/e097a643c9584a50ae91b823f8dbd8df705001f6))
+* add common resource path helpers ([#70](https://www.github.com/googleapis/python-trace/issues/70)) ([e097a64](https://www.github.com/googleapis/python-trace/commit/e097a643c9584a50ae91b823f8dbd8df705001f6))
+* support self-signed JWT flow for service accounts ([1055668](https://www.github.com/googleapis/python-trace/commit/105566818fe8f8930a8393ebfc827ef151b695df))
+
+
+### Bug Fixes
+
+* add async client ([1055668](https://www.github.com/googleapis/python-trace/commit/105566818fe8f8930a8393ebfc827ef151b695df))
+* **deps:** add packaging requirement ([#84](https://www.github.com/googleapis/python-trace/issues/84)) ([792599f](https://www.github.com/googleapis/python-trace/commit/792599fc0e21f3e0d71acdaf9f0d4d6e3afabc5f))
+* use correct retry deadlines ([e097a64](https://www.github.com/googleapis/python-trace/commit/e097a643c9584a50ae91b823f8dbd8df705001f6))
+
 ## [1.1.0](https://www.github.com/googleapis/python-trace/compare/v1.0.0...v1.1.0) (2020-10-13)
 
 

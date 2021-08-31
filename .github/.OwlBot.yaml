@@ -1,10 +1,10 @@
-# Copyright 2018 Google LLC
+# Copyright 2021 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
 # You may obtain a copy of the License at
 #
-#     https://www.apache.org/licenses/LICENSE-2.0
+#     http://www.apache.org/licenses/LICENSE-2.0
 #
 # Unless required by applicable law or agreed to in writing, software
 # distributed under the License is distributed on an "AS IS" BASIS,
@@ -12,17 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
-import time
+docker:
+  image: gcr.io/repo-automation-bots/owlbot-python:latest
 
-from google.cloud import trace_v2
+deep-remove-regex:
+  - /owl-bot-staging
 
+deep-copy-regex:
+  - source: /google/devtools/cloudtrace/(v.*)/.*-py/(.*)
+    dest: /owl-bot-staging/$1/$2
 
-class TestSystemTraceService(object):
-    def test_batch_write_spans(self):
-        project_id = os.environ["PROJECT_ID"]
+begin-after-commit-hash: 6acf4a0a797f1082027985c55c4b14b60f673dd7
 
-        client = trace_v2.TraceServiceClient()
-        name = f"projects/{project_id}"
-        spans = []
-        client.batch_write_spans(name=name, spans=spans)

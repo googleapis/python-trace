@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 # Copyright 2020 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,11 +13,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
-
 import proto  # type: ignore
 
-
-from google.protobuf import timestamp_pb2 as timestamp  # type: ignore
+from google.protobuf import timestamp_pb2  # type: ignore
 
 
 __protobuf__ = proto.module(
@@ -48,26 +45,23 @@ class Trace(proto.Message):
             Globally unique identifier for the trace. This identifier is
             a 128-bit numeric value formatted as a 32-byte hex string.
             For example, ``382d4f4c6b7bb2f4a972559d9085001d``.
-        spans (Sequence[~.trace.TraceSpan]):
+        spans (Sequence[google.cloud.trace_v1.types.TraceSpan]):
             Collection of spans in the trace.
     """
 
-    project_id = proto.Field(proto.STRING, number=1)
-
-    trace_id = proto.Field(proto.STRING, number=2)
-
+    project_id = proto.Field(proto.STRING, number=1,)
+    trace_id = proto.Field(proto.STRING, number=2,)
     spans = proto.RepeatedField(proto.MESSAGE, number=3, message="TraceSpan",)
 
 
 class Traces(proto.Message):
     r"""List of new or updated traces.
-
     Attributes:
-        traces (Sequence[~.trace.Trace]):
+        traces (Sequence[google.cloud.trace_v1.types.Trace]):
             List of traces.
     """
 
-    traces = proto.RepeatedField(proto.MESSAGE, number=1, message=Trace,)
+    traces = proto.RepeatedField(proto.MESSAGE, number=1, message="Trace",)
 
 
 class TraceSpan(proto.Message):
@@ -83,7 +77,7 @@ class TraceSpan(proto.Message):
             Identifier for the span. Must be a 64-bit integer other than
             0 and unique within a trace. For example,
             ``2205310701640571284``.
-        kind (~.trace.TraceSpan.SpanKind):
+        kind (google.cloud.trace_v1.types.TraceSpan.SpanKind):
             Distinguishes between spans generated in a particular
             context. For example, two spans with the same name may be
             distinguished using ``RPC_CLIENT`` and ``RPC_SERVER`` to
@@ -98,15 +92,15 @@ class TraceSpan(proto.Message):
             same call point, a best practice is to use a
             consistent name, which makes it easier to
             correlate cross-trace spans.
-        start_time (~.timestamp.Timestamp):
+        start_time (google.protobuf.timestamp_pb2.Timestamp):
             Start time of the span in nanoseconds from
             the UNIX epoch.
-        end_time (~.timestamp.Timestamp):
+        end_time (google.protobuf.timestamp_pb2.Timestamp):
             End time of the span in nanoseconds from the
             UNIX epoch.
         parent_span_id (int):
             Optional. ID of the parent span, if any.
-        labels (Sequence[~.trace.TraceSpan.LabelsEntry]):
+        labels (Sequence[google.cloud.trace_v1.types.TraceSpan.LabelsEntry]):
             Collection of labels associated with the span. Label keys
             must be less than 128 bytes. Label values must be less than
             16 kilobytes (10MB for ``/stacktrace`` values).
@@ -153,19 +147,13 @@ class TraceSpan(proto.Message):
         RPC_SERVER = 1
         RPC_CLIENT = 2
 
-    span_id = proto.Field(proto.FIXED64, number=1)
-
+    span_id = proto.Field(proto.FIXED64, number=1,)
     kind = proto.Field(proto.ENUM, number=2, enum=SpanKind,)
-
-    name = proto.Field(proto.STRING, number=3)
-
-    start_time = proto.Field(proto.MESSAGE, number=4, message=timestamp.Timestamp,)
-
-    end_time = proto.Field(proto.MESSAGE, number=5, message=timestamp.Timestamp,)
-
-    parent_span_id = proto.Field(proto.FIXED64, number=6)
-
-    labels = proto.MapField(proto.STRING, proto.STRING, number=7)
+    name = proto.Field(proto.STRING, number=3,)
+    start_time = proto.Field(proto.MESSAGE, number=4, message=timestamp_pb2.Timestamp,)
+    end_time = proto.Field(proto.MESSAGE, number=5, message=timestamp_pb2.Timestamp,)
+    parent_span_id = proto.Field(proto.FIXED64, number=6,)
+    labels = proto.MapField(proto.STRING, proto.STRING, number=7,)
 
 
 class ListTracesRequest(proto.Message):
@@ -176,7 +164,7 @@ class ListTracesRequest(proto.Message):
         project_id (str):
             Required. ID of the Cloud project where the
             trace data is stored.
-        view (~.trace.ListTracesRequest.ViewType):
+        view (google.cloud.trace_v1.types.ListTracesRequest.ViewType):
             Optional. Type of data returned for traces in the list.
             Default is ``MINIMAL``.
         page_size (int):
@@ -189,11 +177,11 @@ class ListTracesRequest(proto.Message):
             Token identifying the page of results to return. If
             provided, use the value of the ``next_page_token`` field
             from a previous request.
-        start_time (~.timestamp.Timestamp):
+        start_time (google.protobuf.timestamp_pb2.Timestamp):
             Start of the time interval (inclusive) during
             which the trace data was collected from the
             application.
-        end_time (~.timestamp.Timestamp):
+        end_time (google.protobuf.timestamp_pb2.Timestamp):
             End of the time interval (inclusive) during
             which the trace data was collected from the
             application.
@@ -254,28 +242,20 @@ class ListTracesRequest(proto.Message):
         ROOTSPAN = 2
         COMPLETE = 3
 
-    project_id = proto.Field(proto.STRING, number=1)
-
+    project_id = proto.Field(proto.STRING, number=1,)
     view = proto.Field(proto.ENUM, number=2, enum=ViewType,)
-
-    page_size = proto.Field(proto.INT32, number=3)
-
-    page_token = proto.Field(proto.STRING, number=4)
-
-    start_time = proto.Field(proto.MESSAGE, number=5, message=timestamp.Timestamp,)
-
-    end_time = proto.Field(proto.MESSAGE, number=6, message=timestamp.Timestamp,)
-
-    filter = proto.Field(proto.STRING, number=7)
-
-    order_by = proto.Field(proto.STRING, number=8)
+    page_size = proto.Field(proto.INT32, number=3,)
+    page_token = proto.Field(proto.STRING, number=4,)
+    start_time = proto.Field(proto.MESSAGE, number=5, message=timestamp_pb2.Timestamp,)
+    end_time = proto.Field(proto.MESSAGE, number=6, message=timestamp_pb2.Timestamp,)
+    filter = proto.Field(proto.STRING, number=7,)
+    order_by = proto.Field(proto.STRING, number=8,)
 
 
 class ListTracesResponse(proto.Message):
     r"""The response message for the ``ListTraces`` method.
-
     Attributes:
-        traces (Sequence[~.trace.Trace]):
+        traces (Sequence[google.cloud.trace_v1.types.Trace]):
             List of trace records as specified by the
             view parameter.
         next_page_token (str):
@@ -289,14 +269,12 @@ class ListTracesResponse(proto.Message):
     def raw_page(self):
         return self
 
-    traces = proto.RepeatedField(proto.MESSAGE, number=1, message=Trace,)
-
-    next_page_token = proto.Field(proto.STRING, number=2)
+    traces = proto.RepeatedField(proto.MESSAGE, number=1, message="Trace",)
+    next_page_token = proto.Field(proto.STRING, number=2,)
 
 
 class GetTraceRequest(proto.Message):
     r"""The request message for the ``GetTrace`` method.
-
     Attributes:
         project_id (str):
             Required. ID of the Cloud project where the
@@ -305,25 +283,22 @@ class GetTraceRequest(proto.Message):
             Required. ID of the trace to return.
     """
 
-    project_id = proto.Field(proto.STRING, number=1)
-
-    trace_id = proto.Field(proto.STRING, number=2)
+    project_id = proto.Field(proto.STRING, number=1,)
+    trace_id = proto.Field(proto.STRING, number=2,)
 
 
 class PatchTracesRequest(proto.Message):
     r"""The request message for the ``PatchTraces`` method.
-
     Attributes:
         project_id (str):
             Required. ID of the Cloud project where the
             trace data is stored.
-        traces (~.trace.Traces):
+        traces (google.cloud.trace_v1.types.Traces):
             Required. The body of the message.
     """
 
-    project_id = proto.Field(proto.STRING, number=1)
-
-    traces = proto.Field(proto.MESSAGE, number=2, message=Traces,)
+    project_id = proto.Field(proto.STRING, number=1,)
+    traces = proto.Field(proto.MESSAGE, number=2, message="Traces",)
 
 
 __all__ = tuple(sorted(__protobuf__.manifest))
