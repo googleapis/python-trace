@@ -11,6 +11,6 @@
     "distribution_name": "google-cloud-trace",
     "api_id": "cloudtrace.googleapis.com",
     "requires_billing": false,
-    "default_version": "",
+    "default_version": "v2",
     "codeowner_team": ""
 }
