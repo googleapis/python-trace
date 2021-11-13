@@ -26,11 +26,13 @@ In order to use this library, you first need to go through the following steps:
 
 1. `Select or create a Cloud Platform project.`_
 2. `Enable billing for your project.`_
-3. `Download and deploy your application.`_
+3. `Enable the Google Cloud Trace API.`_
+4. `Setup Authentication.`_
 
 .. _Select or create a Cloud Platform project.: https://console.cloud.google.com/project
 .. _Enable billing for your project.: https://cloud.google.com/billing/docs/how-to/modify-project#enable_billing_for_a_project
-.. _Download and deploy your application.: https://cloud.google.com/trace/docs/quickstart#download_and_deploy_your_application
+.. _Enable the Google Cloud Trace API.: https://console.cloud.google.com/flows/enableapi?apiid=cloudtrace.googleapis.com
+.. _Setup Authentication.: https://googleapis.dev/python/google-api-core/latest/auth.html
 
 Installation
 ~~~~~~~~~~~~
