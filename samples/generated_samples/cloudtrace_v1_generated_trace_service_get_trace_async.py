@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2020 Google LLC
+# Copyright 2022 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -23,13 +23,13 @@
 #   python3 -m pip install google-cloud-trace
 
 
-# [START cloudtrace_generated_trace_v1_TraceService_GetTrace_sync]
+# [START cloudtrace_v1_generated_TraceService_GetTrace_async]
 from google.cloud import trace_v1
 
 
-def sample_get_trace():
+async def sample_get_trace():
     # Create a client
-    client = trace_v1.TraceServiceClient()
+    client = trace_v1.TraceServiceAsyncClient()
 
     # Initialize request argument(s)
     request = trace_v1.GetTraceRequest(
@@ -38,9 +38,9 @@ def sample_get_trace():
     )
 
     # Make the request
-    response = client.get_trace(request=request)
+    response = await client.get_trace(request=request)
 
     # Handle the response
     print(response)
 
-# [END cloudtrace_generated_trace_v1_TraceService_GetTrace_sync]
+# [END cloudtrace_v1_generated_TraceService_GetTrace_async]

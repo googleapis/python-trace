@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2020 Google LLC
+# Copyright 2022 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
 #
 # Generated code. DO NOT EDIT!
 #
-# Snippet for GetTrace
+# Snippet for BatchWriteSpans
 # NOTE: This snippet has been automatically generated for illustrative purposes only.
 # It may require modifications to work in your environment.
 
@@ -23,24 +23,26 @@
 #   python3 -m pip install google-cloud-trace
 
 
-# [START cloudtrace_generated_trace_v1_TraceService_GetTrace_async]
-from google.cloud import trace_v1
+# [START cloudtrace_v2_generated_TraceService_BatchWriteSpans_sync]
+from google.cloud import trace_v2
 
 
-async def sample_get_trace():
+def sample_batch_write_spans():
     # Create a client
-    client = trace_v1.TraceServiceAsyncClient()
+    client = trace_v2.TraceServiceClient()
 
     # Initialize request argument(s)
-    request = trace_v1.GetTraceRequest(
-        project_id="project_id_value",
-        trace_id="trace_id_value",
+    spans = trace_v2.Span()
+    spans.name = "name_value"
+    spans.span_id = "span_id_value"
+
+    request = trace_v2.BatchWriteSpansRequest(
+        name="name_value",
+        spans=spans,
     )
 
     # Make the request
-    response = await client.get_trace(request=request)
+    client.batch_write_spans(request=request)
 
-    # Handle the response
-    print(response)
 
-# [END cloudtrace_generated_trace_v1_TraceService_GetTrace_async]
+# [END cloudtrace_v2_generated_TraceService_BatchWriteSpans_sync]

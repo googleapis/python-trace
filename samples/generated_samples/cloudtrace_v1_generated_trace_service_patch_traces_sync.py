@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2020 Google LLC
+# Copyright 2022 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
 #
 # Generated code. DO NOT EDIT!
 #
-# Snippet for CreateSpan
+# Snippet for PatchTraces
 # NOTE: This snippet has been automatically generated for illustrative purposes only.
 # It may require modifications to work in your environment.
 
@@ -23,24 +23,21 @@
 #   python3 -m pip install google-cloud-trace
 
 
-# [START cloudtrace_generated_trace_v2_TraceService_CreateSpan_async]
-from google.cloud import trace_v2
+# [START cloudtrace_v1_generated_TraceService_PatchTraces_sync]
+from google.cloud import trace_v1
 
 
-async def sample_create_span():
+def sample_patch_traces():
     # Create a client
-    client = trace_v2.TraceServiceAsyncClient()
+    client = trace_v1.TraceServiceClient()
 
     # Initialize request argument(s)
-    request = trace_v2.Span(
-        name="name_value",
-        span_id="span_id_value",
+    request = trace_v1.PatchTracesRequest(
+        project_id="project_id_value",
     )
 
     # Make the request
-    response = await client.create_span(request=request)
+    client.patch_traces(request=request)
 
-    # Handle the response
-    print(response)
 
-# [END cloudtrace_generated_trace_v2_TraceService_CreateSpan_async]
+# [END cloudtrace_v1_generated_TraceService_PatchTraces_sync]

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2020 Google LLC
+# Copyright 2022 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,7 +15,7 @@
 #
 # Generated code. DO NOT EDIT!
 #
-# Snippet for ListTraces
+# Snippet for GetTrace
 # NOTE: This snippet has been automatically generated for illustrative purposes only.
 # It may require modifications to work in your environment.
 
@@ -23,24 +23,24 @@
 #   python3 -m pip install google-cloud-trace
 
 
-# [START cloudtrace_generated_trace_v1_TraceService_ListTraces_sync]
+# [START cloudtrace_v1_generated_TraceService_GetTrace_sync]
 from google.cloud import trace_v1
 
 
-def sample_list_traces():
+def sample_get_trace():
     # Create a client
     client = trace_v1.TraceServiceClient()
 
     # Initialize request argument(s)
-    request = trace_v1.ListTracesRequest(
+    request = trace_v1.GetTraceRequest(
         project_id="project_id_value",
+        trace_id="trace_id_value",
     )
 
     # Make the request
-    page_result = client.list_traces(request=request)
+    response = client.get_trace(request=request)
 
     # Handle the response
-    for response in page_result:
-        print(response)
+    print(response)
 
-# [END cloudtrace_generated_trace_v1_TraceService_ListTraces_sync]
+# [END cloudtrace_v1_generated_TraceService_GetTrace_sync]

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# Copyright 2020 Google LLC
+# Copyright 2022 Google LLC
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -23,7 +23,7 @@
 #   python3 -m pip install google-cloud-trace
 
 
-# [START cloudtrace_generated_trace_v2_TraceService_CreateSpan_sync]
+# [START cloudtrace_v2_generated_TraceService_CreateSpan_sync]
 from google.cloud import trace_v2
 
 
@@ -43,4 +43,4 @@ def sample_create_span():
     # Handle the response
     print(response)
 
-# [END cloudtrace_generated_trace_v2_TraceService_CreateSpan_sync]
+# [END cloudtrace_v2_generated_TraceService_CreateSpan_sync]
