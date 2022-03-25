@@ -45,7 +45,7 @@ def lint(session):
     session.run("flake8", "google", "tests")
 
 
-@nox.session(python="3.6")
+@nox.session(python=DEFAULT_PYTHON_VERSION)
 def blacken(session):
     """Run black.
 
@@ -149,12 +149,7 @@ def docs(session):
     """Build the docs for this library."""
 
     session.install("-e", ".")
-    session.install(
-        "sphinx<3.0.0",
-        "alabaster",
-        "recommonmark",
-        "Jinja2<3.1"
-    )
+    session.install("sphinx<3.0.0", "alabaster", "recommonmark", "Jinja2<3.1")
 
     shutil.rmtree(os.path.join("docs", "_build"), ignore_errors=True)
     session.run(
@@ -180,7 +175,7 @@ def docfx(session):
         "sphinx<3.0.0",
         "alabaster",
         "recommonmark",
-        "sphinx-docfx-yaml",
+        "gcp-sphinx-docfx-yaml",
         "Jinja2<3.1",
     )
 
