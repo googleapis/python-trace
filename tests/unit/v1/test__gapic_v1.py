@@ -133,10 +133,10 @@ class Test__TraceAPI(unittest.TestCase):
 
 
 class _TracePbBase(object):
-    project = u"PROJECT"
-    trace_id = u"test_trace_id"
+    project = "PROJECT"
+    trace_id = "test_trace_id"
     span_id = 1234
-    span_name = u"test_span_name"
+    span_name = "test_span_name"
     start_time = "2017-06-24T00:12:50.369990Z"
     end_time = "2017-06-24T00:13:39.633255Z"
     start_seconds = 1498263170

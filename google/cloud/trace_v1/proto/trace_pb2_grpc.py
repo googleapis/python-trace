@@ -48,15 +48,13 @@ class TraceServiceServicer(object):
     """
 
     def ListTraces(self, request, context):
-        """Returns of a list of traces that match the specified filter conditions.
-        """
+        """Returns of a list of traces that match the specified filter conditions."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
 
     def GetTrace(self, request, context):
-        """Gets a single trace by its ID.
-        """
+        """Gets a single trace by its ID."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")

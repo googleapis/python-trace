@@ -447,8 +447,12 @@ _TRACESPAN = _descriptor.Descriptor(
         ),
     ],
     extensions=[],
-    nested_types=[_TRACESPAN_LABELSENTRY,],
-    enum_types=[_TRACESPAN_SPANKIND,],
+    nested_types=[
+        _TRACESPAN_LABELSENTRY,
+    ],
+    enum_types=[
+        _TRACESPAN_SPANKIND,
+    ],
     serialized_options=None,
     is_extendable=False,
     syntax="proto3",
@@ -622,7 +626,9 @@ _LISTTRACESREQUEST = _descriptor.Descriptor(
     ],
     extensions=[],
     nested_types=[],
-    enum_types=[_LISTTRACESREQUEST_VIEWTYPE,],
+    enum_types=[
+        _LISTTRACESREQUEST_VIEWTYPE,
+    ],
     serialized_options=None,
     is_extendable=False,
     syntax="proto3",
