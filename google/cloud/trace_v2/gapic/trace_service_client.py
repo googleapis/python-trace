@@ -41,7 +41,9 @@ from google.protobuf import wrappers_pb2
 from google.rpc import status_pb2
 
 
-_GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution("google-cloud-trace",).version
+_GAPIC_LIBRARY_VERSION = pkg_resources.get_distribution(
+    "google-cloud-trace",
+).version
 
 
 class TraceServiceClient(object):
@@ -84,7 +86,8 @@ class TraceServiceClient(object):
     def project_path(cls, project):
         """Return a fully-qualified project string."""
         return google.api_core.path_template.expand(
-            "projects/{project}", project=project,
+            "projects/{project}",
+            project=project,
         )
 
     @classmethod
@@ -184,7 +187,9 @@ class TraceServiceClient(object):
                 self.transport = transport
         else:
             self.transport = trace_service_grpc_transport.TraceServiceGrpcTransport(
-                address=api_endpoint, channel=channel, credentials=credentials,
+                address=api_endpoint,
+                channel=channel,
+                credentials=credentials,
             )
 
         if client_info is None:
@@ -451,7 +456,10 @@ class TraceServiceClient(object):
                 client_info=self._client_info,
             )
 
-        request = tracing_pb2.BatchWriteSpansRequest(name=name, spans=spans,)
+        request = tracing_pb2.BatchWriteSpansRequest(
+            name=name,
+            spans=spans,
+        )
         if metadata is None:
             metadata = []
         metadata = list(metadata)

@@ -54,8 +54,7 @@ class TraceServiceServicer(object):
         raise NotImplementedError("Method not implemented!")
 
     def CreateSpan(self, request, context):
-        """Creates a new span.
-        """
+        """Creates a new span."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details("Method not implemented!")
         raise NotImplementedError("Method not implemented!")
