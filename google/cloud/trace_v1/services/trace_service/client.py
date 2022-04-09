@@ -16,7 +16,7 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Optional, Sequence, Tuple, Type, Union
+from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib
@@ -423,7 +423,7 @@ class TraceServiceClient(metaclass=TraceServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import trace_v1
+                    from google.cloud import trace_v1
 
             def sample_list_traces():
                 # Create a client
@@ -526,7 +526,7 @@ class TraceServiceClient(metaclass=TraceServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import trace_v1
+                    from google.cloud import trace_v1
 
             def sample_get_trace():
                 # Create a client
@@ -634,7 +634,7 @@ class TraceServiceClient(metaclass=TraceServiceClientMeta):
 
         .. code-block:: python
 
-            from google.cloud import trace_v1
+                    from google.cloud import trace_v1
 
             def sample_patch_traces():
                 # Create a client

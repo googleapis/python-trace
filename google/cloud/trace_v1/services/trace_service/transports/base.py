@@ -85,6 +85,7 @@ class TraceServiceTransport(abc.ABC):
             always_use_jwt_access (Optional[bool]): Whether self signed JWT should
                 be used for service account credentials.
         """
+
         # Save the hostname. Default to port 443 (HTTPS) if none is specified.
         if ":" not in host:
             host += ":443"
@@ -132,8 +133,7 @@ class TraceServiceTransport(abc.ABC):
                     maximum=1.0,
                     multiplier=1.2,
                     predicate=retries.if_exception_type(
-                        core_exceptions.DeadlineExceeded,
-                        core_exceptions.ServiceUnavailable,
+                        core_exceptions.GoogleAPICallError,
                     ),
                     deadline=45.0,
                 ),
@@ -147,8 +147,7 @@ class TraceServiceTransport(abc.ABC):
                     maximum=1.0,
                     multiplier=1.2,
                     predicate=retries.if_exception_type(
-                        core_exceptions.DeadlineExceeded,
-                        core_exceptions.ServiceUnavailable,
+                        core_exceptions.GoogleAPICallError,
                     ),
                     deadline=45.0,
                 ),
@@ -162,8 +161,7 @@ class TraceServiceTransport(abc.ABC):
                     maximum=1.0,
                     multiplier=1.2,
                     predicate=retries.if_exception_type(
-                        core_exceptions.DeadlineExceeded,
-                        core_exceptions.ServiceUnavailable,
+                        core_exceptions.GoogleAPICallError,
                     ),
                     deadline=45.0,
                 ),
@@ -202,6 +200,10 @@ class TraceServiceTransport(abc.ABC):
     ) -> Callable[
         [trace.PatchTracesRequest], Union[empty_pb2.Empty, Awaitable[empty_pb2.Empty]]
     ]:
+        raise NotImplementedError()
+
+    @property
+    def kind(self) -> str:
         raise NotImplementedError()
 
 
