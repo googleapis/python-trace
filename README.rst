@@ -3,7 +3,7 @@ Python Client for Cloud Trace API
 
 |stable| |pypi| |versions|
 
-`Cloud Trace API`_: 
+`Cloud Trace API`_: is a distributed tracing system that collects latency data from your applications and displays it in the Google Cloud Platform Console. You can track how requests propagate through your application and receive detailed near real-time performance insights.
 
 - `Client Library Documentation`_
 - `Product Documentation`_
