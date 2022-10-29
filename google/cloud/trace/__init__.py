@@ -13,6 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 #
+from google.cloud.trace import gapic_version as package_version
+
+__version__ = package_version.__version__
+
 
 from google.cloud.trace_v2.services.trace_service.client import TraceServiceClient
 from google.cloud.trace_v2.services.trace_service.async_client import (
