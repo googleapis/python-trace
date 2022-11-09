@@ -16,7 +16,18 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union, cast
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+    cast,
+)
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib
@@ -58,7 +69,7 @@ class TraceServiceClientMeta(type):
 
     def get_transport_class(
         cls,
-        label: str = None,
+        label: Optional[str] = None,
     ) -> Type[TraceServiceTransport]:
         """Returns an appropriate transport class.
 
@@ -339,7 +350,7 @@ class TraceServiceClient(metaclass=TraceServiceClientMeta):
         self,
         *,
         credentials: Optional[ga_credentials.Credentials] = None,
-        transport: Union[str, TraceServiceTransport, None] = None,
+        transport: Optional[Union[str, TraceServiceTransport]] = None,
         client_options: Optional[Union[client_options_lib.ClientOptions, dict]] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
@@ -437,12 +448,12 @@ class TraceServiceClient(metaclass=TraceServiceClientMeta):
 
     def batch_write_spans(
         self,
-        request: Union[tracing.BatchWriteSpansRequest, dict] = None,
+        request: Optional[Union[tracing.BatchWriteSpansRequest, dict]] = None,
         *,
-        name: str = None,
-        spans: Sequence[trace.Span] = None,
+        name: Optional[str] = None,
+        spans: Optional[MutableSequence[trace.Span]] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Sends new spans to new or existing traces. You cannot
@@ -487,7 +498,7 @@ class TraceServiceClient(metaclass=TraceServiceClientMeta):
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            spans (Sequence[google.cloud.trace_v2.types.Span]):
+            spans (MutableSequence[google.cloud.trace_v2.types.Span]):
                 Required. A list of new spans. The
                 span names must not match existing
                 spans, or the results are undefined.
@@ -544,10 +555,10 @@ class TraceServiceClient(metaclass=TraceServiceClientMeta):
 
     def create_span(
         self,
-        request: Union[trace.Span, dict] = None,
+        request: Optional[Union[trace.Span, dict]] = None,
         *,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> trace.Span:
         r"""Creates a new span.

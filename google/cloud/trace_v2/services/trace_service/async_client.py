@@ -16,7 +16,17 @@
 from collections import OrderedDict
 import functools
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+)
 import pkg_resources
 
 from google.api_core.client_options import ClientOptions
@@ -163,9 +173,9 @@ class TraceServiceAsyncClient:
     def __init__(
         self,
         *,
-        credentials: ga_credentials.Credentials = None,
+        credentials: Optional[ga_credentials.Credentials] = None,
         transport: Union[str, TraceServiceTransport] = "grpc_asyncio",
-        client_options: ClientOptions = None,
+        client_options: Optional[ClientOptions] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
         """Instantiates the trace service client.
@@ -209,12 +219,12 @@ class TraceServiceAsyncClient:
 
     async def batch_write_spans(
         self,
-        request: Union[tracing.BatchWriteSpansRequest, dict] = None,
+        request: Optional[Union[tracing.BatchWriteSpansRequest, dict]] = None,
         *,
-        name: str = None,
-        spans: Sequence[trace.Span] = None,
+        name: Optional[str] = None,
+        spans: Optional[MutableSequence[trace.Span]] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Sends new spans to new or existing traces. You cannot
@@ -249,7 +259,7 @@ class TraceServiceAsyncClient:
                 await client.batch_write_spans(request=request)
 
         Args:
-            request (Union[google.cloud.trace_v2.types.BatchWriteSpansRequest, dict]):
+            request (Optional[Union[google.cloud.trace_v2.types.BatchWriteSpansRequest, dict]]):
                 The request object. The request message for the
                 `BatchWriteSpans` method.
             name (:class:`str`):
@@ -259,7 +269,7 @@ class TraceServiceAsyncClient:
                 This corresponds to the ``name`` field
                 on the ``request`` instance; if ``request`` is provided, this
                 should not be set.
-            spans (:class:`Sequence[google.cloud.trace_v2.types.Span]`):
+            spans (:class:`MutableSequence[google.cloud.trace_v2.types.Span]`):
                 Required. A list of new spans. The
                 span names must not match existing
                 spans, or the results are undefined.
@@ -316,10 +326,10 @@ class TraceServiceAsyncClient:
 
     async def create_span(
         self,
-        request: Union[trace.Span, dict] = None,
+        request: Optional[Union[trace.Span, dict]] = None,
         *,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> trace.Span:
         r"""Creates a new span.
@@ -352,7 +362,7 @@ class TraceServiceAsyncClient:
                 print(response)
 
         Args:
-            request (Union[google.cloud.trace_v2.types.Span, dict]):
+            request (Optional[Union[google.cloud.trace_v2.types.Span, dict]]):
                 The request object. A span represents a single operation
                 within a trace. Spans can be nested to form a trace
                 tree. Often, a trace contains a root span that describes

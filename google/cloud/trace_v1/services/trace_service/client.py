@@ -16,7 +16,18 @@
 from collections import OrderedDict
 import os
 import re
-from typing import Dict, Mapping, Optional, Sequence, Tuple, Type, Union, cast
+from typing import (
+    Dict,
+    Mapping,
+    MutableMapping,
+    MutableSequence,
+    Optional,
+    Sequence,
+    Tuple,
+    Type,
+    Union,
+    cast,
+)
 import pkg_resources
 
 from google.api_core import client_options as client_options_lib
@@ -55,7 +66,7 @@ class TraceServiceClientMeta(type):
 
     def get_transport_class(
         cls,
-        label: str = None,
+        label: Optional[str] = None,
     ) -> Type[TraceServiceTransport]:
         """Returns an appropriate transport class.
 
@@ -314,7 +325,7 @@ class TraceServiceClient(metaclass=TraceServiceClientMeta):
         self,
         *,
         credentials: Optional[ga_credentials.Credentials] = None,
-        transport: Union[str, TraceServiceTransport, None] = None,
+        transport: Optional[Union[str, TraceServiceTransport]] = None,
         client_options: Optional[Union[client_options_lib.ClientOptions, dict]] = None,
         client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
     ) -> None:
@@ -412,11 +423,11 @@ class TraceServiceClient(metaclass=TraceServiceClientMeta):
 
     def list_traces(
         self,
-        request: Union[trace.ListTracesRequest, dict] = None,
+        request: Optional[Union[trace.ListTracesRequest, dict]] = None,
         *,
-        project_id: str = None,
+        project_id: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> pagers.ListTracesPager:
         r"""Returns of a list of traces that match the specified
@@ -530,12 +541,12 @@ class TraceServiceClient(metaclass=TraceServiceClientMeta):
 
     def get_trace(
         self,
-        request: Union[trace.GetTraceRequest, dict] = None,
+        request: Optional[Union[trace.GetTraceRequest, dict]] = None,
         *,
-        project_id: str = None,
-        trace_id: str = None,
+        project_id: Optional[str] = None,
+        trace_id: Optional[str] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> trace.Trace:
         r"""Gets a single trace by its ID.
@@ -649,12 +660,12 @@ class TraceServiceClient(metaclass=TraceServiceClientMeta):
 
     def patch_traces(
         self,
-        request: Union[trace.PatchTracesRequest, dict] = None,
+        request: Optional[Union[trace.PatchTracesRequest, dict]] = None,
         *,
-        project_id: str = None,
-        traces: trace.Traces = None,
+        project_id: Optional[str] = None,
+        traces: Optional[trace.Traces] = None,
         retry: OptionalRetry = gapic_v1.method.DEFAULT,
-        timeout: float = None,
+        timeout: Optional[float] = None,
         metadata: Sequence[Tuple[str, str]] = (),
     ) -> None:
         r"""Sends new traces to Stackdriver Trace or updates
