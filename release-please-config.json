@@ -7,7 +7,17 @@
         "google/cloud/trace/gapic_version.py",
         {
           "type": "json",
+          "path": "samples/generated_samples/snippet_metadata_google.devtools.cloudtrace.v1.json",
+          "jsonpath": "$.clientLibrary.version"
+        },
+        {
+          "type": "json",
           "path": "samples/generated_samples/snippet_metadata_trace_v1.json",
+          "jsonpath": "$.clientLibrary.version"
+        },
+        {
+          "type": "json",
+          "path": "samples/generated_samples/snippet_metadata_google.devtools.cloudtrace.v2.json",
           "jsonpath": "$.clientLibrary.version"
         },
         {
