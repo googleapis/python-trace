@@ -19,7 +19,6 @@ import proto  # type: ignore
 
 from google.cloud.trace_v2.types import trace
 
-
 __protobuf__ = proto.module(
     package="google.devtools.cloudtrace.v2",
     manifest={

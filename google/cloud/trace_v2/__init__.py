@@ -18,14 +18,8 @@ from google.cloud.trace import gapic_version as package_version
 __version__ = package_version.__version__
 
 
-from .services.trace_service import TraceServiceClient
-from .services.trace_service import TraceServiceAsyncClient
-
-from .types.trace import AttributeValue
-from .types.trace import Module
-from .types.trace import Span
-from .types.trace import StackTrace
-from .types.trace import TruncatableString
+from .services.trace_service import TraceServiceAsyncClient, TraceServiceClient
+from .types.trace import AttributeValue, Module, Span, StackTrace, TruncatableString
 from .types.tracing import BatchWriteSpansRequest
 
 __all__ = (

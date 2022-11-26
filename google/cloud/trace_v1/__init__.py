@@ -18,16 +18,16 @@ from google.cloud.trace import gapic_version as package_version
 __version__ = package_version.__version__
 
 
-from .services.trace_service import TraceServiceClient
-from .services.trace_service import TraceServiceAsyncClient
-
-from .types.trace import GetTraceRequest
-from .types.trace import ListTracesRequest
-from .types.trace import ListTracesResponse
-from .types.trace import PatchTracesRequest
-from .types.trace import Trace
-from .types.trace import Traces
-from .types.trace import TraceSpan
+from .services.trace_service import TraceServiceAsyncClient, TraceServiceClient
+from .types.trace import (
+    GetTraceRequest,
+    ListTracesRequest,
+    ListTracesResponse,
+    PatchTracesRequest,
+    Trace,
+    Traces,
+    TraceSpan,
+)
 
 __all__ = (
     "TraceServiceAsyncClient",
