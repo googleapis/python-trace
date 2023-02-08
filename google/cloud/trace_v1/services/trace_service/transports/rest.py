@@ -14,24 +14,21 @@
 # limitations under the License.
 #
 
-from google.auth.transport.requests import AuthorizedSession  # type: ignore
-import json  # type: ignore
-import grpc  # type: ignore
-from google.auth.transport.grpc import SslCredentials  # type: ignore
-from google.auth import credentials as ga_credentials  # type: ignore
-from google.api_core import exceptions as core_exceptions
-from google.api_core import retry as retries
-from google.api_core import rest_helpers
-from google.api_core import rest_streaming
-from google.api_core import path_template
-from google.api_core import gapic_v1
-
-from google.protobuf import json_format
-from requests import __version__ as requests_version
 import dataclasses
+import json  # type: ignore
 import re
 from typing import Callable, Dict, List, Optional, Sequence, Tuple, Union
 import warnings
+
+from google.api_core import gapic_v1, path_template, rest_helpers, rest_streaming
+from google.api_core import exceptions as core_exceptions
+from google.api_core import retry as retries
+from google.auth import credentials as ga_credentials  # type: ignore
+from google.auth.transport.grpc import SslCredentials  # type: ignore
+from google.auth.transport.requests import AuthorizedSession  # type: ignore
+from google.protobuf import json_format
+import grpc  # type: ignore
+from requests import __version__ as requests_version
 
 try:
     OptionalRetry = Union[retries.Retry, gapic_v1.method._MethodDefault]
@@ -39,11 +36,12 @@ except AttributeError:  # pragma: NO COVER
     OptionalRetry = Union[retries.Retry, object]  # type: ignore
 
 
-from google.cloud.trace_v1.types import trace
 from google.protobuf import empty_pb2  # type: ignore
 
-from .base import TraceServiceTransport, DEFAULT_CLIENT_INFO as BASE_DEFAULT_CLIENT_INFO
+from google.cloud.trace_v1.types import trace
 
+from .base import DEFAULT_CLIENT_INFO as BASE_DEFAULT_CLIENT_INFO
+from .base import TraceServiceTransport
 
 DEFAULT_CLIENT_INFO = gapic_v1.client_info.ClientInfo(
     gapic_version=BASE_DEFAULT_CLIENT_INFO.gapic_version,
@@ -92,7 +90,10 @@ class TraceServiceRestInterceptor:
 
 
     """
-    def pre_get_trace(self, request: trace.GetTraceRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[trace.GetTraceRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_get_trace(
+        self, request: trace.GetTraceRequest, metadata: Sequence[Tuple[str, str]]
+    ) -> Tuple[trace.GetTraceRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for get_trace
 
         Override in a subclass to manipulate the request or metadata
@@ -108,7 +109,10 @@ class TraceServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_list_traces(self, request: trace.ListTracesRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[trace.ListTracesRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_list_traces(
+        self, request: trace.ListTracesRequest, metadata: Sequence[Tuple[str, str]]
+    ) -> Tuple[trace.ListTracesRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for list_traces
 
         Override in a subclass to manipulate the request or metadata
@@ -116,7 +120,9 @@ class TraceServiceRestInterceptor:
         """
         return request, metadata
 
-    def post_list_traces(self, response: trace.ListTracesResponse) -> trace.ListTracesResponse:
+    def post_list_traces(
+        self, response: trace.ListTracesResponse
+    ) -> trace.ListTracesResponse:
         """Post-rpc interceptor for list_traces
 
         Override in a subclass to manipulate the response
@@ -124,7 +130,10 @@ class TraceServiceRestInterceptor:
         it is returned to user code.
         """
         return response
-    def pre_patch_traces(self, request: trace.PatchTracesRequest, metadata: Sequence[Tuple[str, str]]) -> Tuple[trace.PatchTracesRequest, Sequence[Tuple[str, str]]]:
+
+    def pre_patch_traces(
+        self, request: trace.PatchTracesRequest, metadata: Sequence[Tuple[str, str]]
+    ) -> Tuple[trace.PatchTracesRequest, Sequence[Tuple[str, str]]]:
         """Pre-rpc interceptor for patch_traces
 
         Override in a subclass to manipulate the request or metadata
@@ -158,20 +167,21 @@ class TraceServiceRestTransport(TraceServiceTransport):
 
     """
 
-    def __init__(self, *,
-            host: str = 'cloudtrace.googleapis.com',
-            credentials: Optional[ga_credentials.Credentials] = None,
-            credentials_file: Optional[str] = None,
-            scopes: Optional[Sequence[str]] = None,
-            client_cert_source_for_mtls: Optional[Callable[[
-                ], Tuple[bytes, bytes]]] = None,
-            quota_project_id: Optional[str] = None,
-            client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
-            always_use_jwt_access: Optional[bool] = False,
-            url_scheme: str = 'https',
-            interceptor: Optional[TraceServiceRestInterceptor] = None,
-            api_audience: Optional[str] = None,
-            ) -> None:
+    def __init__(
+        self,
+        *,
+        host: str = "cloudtrace.googleapis.com",
+        credentials: Optional[ga_credentials.Credentials] = None,
+        credentials_file: Optional[str] = None,
+        scopes: Optional[Sequence[str]] = None,
+        client_cert_source_for_mtls: Optional[Callable[[], Tuple[bytes, bytes]]] = None,
+        quota_project_id: Optional[str] = None,
+        client_info: gapic_v1.client_info.ClientInfo = DEFAULT_CLIENT_INFO,
+        always_use_jwt_access: Optional[bool] = False,
+        url_scheme: str = "https",
+        interceptor: Optional[TraceServiceRestInterceptor] = None,
+        api_audience: Optional[str] = None,
+    ) -> None:
         """Instantiate the transport.
 
         Args:
@@ -210,7 +220,9 @@ class TraceServiceRestTransport(TraceServiceTransport):
         # credentials object
         maybe_url_match = re.match("^(?P<scheme>http(?:s)?://)?(?P<host>.*)$", host)
         if maybe_url_match is None:
-            raise ValueError(f"Unexpected hostname structure: {host}")  # pragma: NO COVER
+            raise ValueError(
+                f"Unexpected hostname structure: {host}"
+            )  # pragma: NO COVER
 
         url_match_items = maybe_url_match.groupdict()
 
@@ -221,10 +233,11 @@ class TraceServiceRestTransport(TraceServiceTransport):
             credentials=credentials,
             client_info=client_info,
             always_use_jwt_access=always_use_jwt_access,
-            api_audience=api_audience
+            api_audience=api_audience,
         )
         self._session = AuthorizedSession(
-            self._credentials, default_host=self.DEFAULT_HOST)
+            self._credentials, default_host=self.DEFAULT_HOST
+        )
         if client_cert_source_for_mtls:
             self._session.configure_mtls_channel(client_cert_source_for_mtls)
         self._interceptor = interceptor or TraceServiceRestInterceptor()
@@ -234,19 +247,24 @@ class TraceServiceRestTransport(TraceServiceTransport):
         def __hash__(self):
             return hash("GetTrace")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: trace.GetTraceRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> trace.Trace:
+        def __call__(
+            self,
+            request: trace.GetTraceRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> trace.Trace:
             r"""Call the get trace method over HTTP.
 
             Args:
@@ -268,37 +286,40 @@ class TraceServiceRestTransport(TraceServiceTransport):
 
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v1/projects/{project_id}/traces/{trace_id}',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1/projects/{project_id}/traces/{trace_id}",
+                },
             ]
             request, metadata = self._interceptor.pre_get_trace(request, metadata)
             pb_request = trace.GetTraceRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -317,19 +338,24 @@ class TraceServiceRestTransport(TraceServiceTransport):
         def __hash__(self):
             return hash("ListTraces")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: trace.ListTracesRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ) -> trace.ListTracesResponse:
+        def __call__(
+            self,
+            request: trace.ListTracesRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ) -> trace.ListTracesResponse:
             r"""Call the list traces method over HTTP.
 
             Args:
@@ -348,37 +374,40 @@ class TraceServiceRestTransport(TraceServiceTransport):
                     The response message for the ``ListTraces`` method.
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'get',
-                'uri': '/v1/projects/{project_id}/traces',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "get",
+                    "uri": "/v1/projects/{project_id}/traces",
+                },
             ]
             request, metadata = self._interceptor.pre_list_traces(request, metadata)
             pb_request = trace.ListTracesRequest.pb(request)
             transcoded_request = path_template.transcode(http_options, pb_request)
 
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
 
             # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True,
-            ))
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -397,19 +426,24 @@ class TraceServiceRestTransport(TraceServiceTransport):
         def __hash__(self):
             return hash("PatchTraces")
 
-        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] =  {
-        }
+        __REQUIRED_FIELDS_DEFAULT_VALUES: Dict[str, str] = {}
 
         @classmethod
         def _get_unset_required_fields(cls, message_dict):
-            return {k: v for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items() if k not in message_dict}
+            return {
+                k: v
+                for k, v in cls.__REQUIRED_FIELDS_DEFAULT_VALUES.items()
+                if k not in message_dict
+            }
 
-        def __call__(self,
-                request: trace.PatchTracesRequest, *,
-                retry: OptionalRetry=gapic_v1.method.DEFAULT,
-                timeout: Optional[float]=None,
-                metadata: Sequence[Tuple[str, str]]=(),
-                ):
+        def __call__(
+            self,
+            request: trace.PatchTracesRequest,
+            *,
+            retry: OptionalRetry = gapic_v1.method.DEFAULT,
+            timeout: Optional[float] = None,
+            metadata: Sequence[Tuple[str, str]] = (),
+        ):
             r"""Call the patch traces method over HTTP.
 
             Args:
@@ -422,11 +456,12 @@ class TraceServiceRestTransport(TraceServiceTransport):
                     sent along with the request as metadata.
             """
 
-            http_options: List[Dict[str, str]] = [{
-                'method': 'patch',
-                'uri': '/v1/projects/{project_id}/traces',
-                'body': 'traces',
-            },
+            http_options: List[Dict[str, str]] = [
+                {
+                    "method": "patch",
+                    "uri": "/v1/projects/{project_id}/traces",
+                    "body": "traces",
+                },
             ]
             request, metadata = self._interceptor.pre_patch_traces(request, metadata)
             pb_request = trace.PatchTracesRequest.pb(request)
@@ -435,33 +470,35 @@ class TraceServiceRestTransport(TraceServiceTransport):
             # Jsonify the request body
 
             body = json_format.MessageToJson(
-                transcoded_request['body'],
-                including_default_value_fields=False,
-                use_integers_for_enums=True
-            )
-            uri = transcoded_request['uri']
-            method = transcoded_request['method']
-
-            # Jsonify the query params
-            query_params = json.loads(json_format.MessageToJson(
-                transcoded_request['query_params'],
+                transcoded_request["body"],
                 including_default_value_fields=False,
                 use_integers_for_enums=True,
-            ))
+            )
+            uri = transcoded_request["uri"]
+            method = transcoded_request["method"]
+
+            # Jsonify the query params
+            query_params = json.loads(
+                json_format.MessageToJson(
+                    transcoded_request["query_params"],
+                    including_default_value_fields=False,
+                    use_integers_for_enums=True,
+                )
+            )
             query_params.update(self._get_unset_required_fields(query_params))
 
             query_params["$alt"] = "json;enum-encoding=int"
 
             # Send the request
             headers = dict(metadata)
-            headers['Content-Type'] = 'application/json'
+            headers["Content-Type"] = "application/json"
             response = getattr(self._session, method)(
                 "{host}{uri}".format(host=self._host, uri=uri),
                 timeout=timeout,
                 headers=headers,
                 params=rest_helpers.flatten_query_params(query_params, strict=True),
                 data=body,
-                )
+            )
 
             # In case of error, raise the appropriate core_exceptions.GoogleAPICallError exception
             # subclass.
@@ -469,28 +506,24 @@ class TraceServiceRestTransport(TraceServiceTransport):
                 raise core_exceptions.from_http_response(response)
 
     @property
-    def get_trace(self) -> Callable[
-            [trace.GetTraceRequest],
-            trace.Trace]:
+    def get_trace(self) -> Callable[[trace.GetTraceRequest], trace.Trace]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._GetTrace(self._session, self._host, self._interceptor) # type: ignore
+        return self._GetTrace(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def list_traces(self) -> Callable[
-            [trace.ListTracesRequest],
-            trace.ListTracesResponse]:
+    def list_traces(
+        self,
+    ) -> Callable[[trace.ListTracesRequest], trace.ListTracesResponse]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._ListTraces(self._session, self._host, self._interceptor) # type: ignore
+        return self._ListTraces(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
-    def patch_traces(self) -> Callable[
-            [trace.PatchTracesRequest],
-            empty_pb2.Empty]:
+    def patch_traces(self) -> Callable[[trace.PatchTracesRequest], empty_pb2.Empty]:
         # The return type is fine, but mypy isn't sophisticated enough to determine what's going on here.
         # In C++ this would require a dynamic_cast
-        return self._PatchTraces(self._session, self._host, self._interceptor) # type: ignore
+        return self._PatchTraces(self._session, self._host, self._interceptor)  # type: ignore
 
     @property
     def kind(self) -> str:
@@ -500,6 +533,4 @@ class TraceServiceRestTransport(TraceServiceTransport):
         self._session.close()
 
 
-__all__=(
-    'TraceServiceRestTransport',
-)
+__all__ = ("TraceServiceRestTransport",)
